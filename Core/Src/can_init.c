@@ -1,5 +1,9 @@
 #include "can_init.h"
 
+
+CAN_Msg CAN_TxMsg;
+CAN_Msg CAN_RxMsg;
+
 void clock_enable(void){
     RCC->APB2ENR |= (1<<0); //enable alternate function clock
     RCC->APB2ENR |= (1<<2); //enable gpioa clock
@@ -37,7 +41,7 @@ void can_init(void){
     
     CAN1->IER = (CAN_IER_FMPIE0 | CAN_IER_TMEIE);
     
-    
+    CAN1->MCR   &=    ~(1<<16);
     CAN1->MCR   &=    ~(1<<2);
     CAN1->MCR   &=    ~(1<<3);
     CAN1->MCR   |=     (1<<4);
@@ -46,9 +50,9 @@ void can_init(void){
     CAN1->MCR   &=    ~(1<<7);
 
     CAN1->BTR = 0;
-	CAN1->BTR |= (1<<30);		//Loop Back Mode
 
     CAN1->BTR |= (3<<24);
+    
     CAN1->BTR |= (4<<20);
     CAN1->BTR |= (1<<16);
     CAN1->BTR |= (3<<0);
@@ -62,21 +66,135 @@ void can_init(void){
     CAN1->BTR |=  (1<<21);
     CAN1->BTR |=  (1<<22);
 
-	
-    CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
+	//tq = 144 MHz
+    //tbs1 = 432 MHz
+    //tbs2 = 576 MHz
+    //trjw = 576 MHZ
+    //0.000002 nominal bit time
+    /*
+        
+    */
 
-	  CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_RTR;
-	  CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_EXID;		//Standard Identifier
-	  CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_STID;
-	  CAN1->sTxMailBox[0].TIR |= (0xFF << CAN_TI0R_STID_Pos);				//Message ID = 1
+    CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
+    
+
+    CAN1->sTxMailBox[0].TIR &= ~0xFFFFFFFF;
+
+    if (CAN_TxMsg.format == STANDAR_FORMAT)
+        CAN1->sTxMailBox[0].TIR &= ~(1<<2);		    
+    
+    else if(CAN_TxMsg.format == EXTENDED_FORMAT)
+        CAN1->sTxMailBox[0].TIR |= (1<<2);
+    
+    if(CAN_TxMsg.type == DATA_FRAME)
+        CAN1->sTxMailBox[0].TIR &= ~(1<<1);
+    
+    else if(CAN_TxMsg.type == REMOTE_FRAME)
+        CAN1->sTxMailBox[0].TIR |= (1<<1);
 
     CAN1->sTxMailBox[0].TDTR |= (1<<3);
     CAN1->sTxMailBox[0].TDTR |= (1<<2);
     CAN1->sTxMailBox[0].TDTR |= (1<<1);
     CAN1->sTxMailBox[0].TDTR |= (1<<0);
 
+    CAN1->sTxMailBox[0].TIR |= (0x33<<3); 
+    CAN1->sTxMailBox[0].TIR |= (0x0<<21); 
+
+
 }
+
+
+void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
+    unsigned int CAN_MsgId = 0;
+    static unsigned short CAN_FilterId = 0;
+
+    if(CAN_FilterId )
     
+    CAN1->FMR                               |=  (1<<0);                     //Filter init mode
+    CAN1->FA1R                              &= ~(1<<CAN_FilterId);          //Deactive Filter Id
+    CAN1->FS1R                              |=  (1<<CAN_FilterId);          //Single 32-bit scale configuration
+    CAN1->FM1R                              |=  (1<<CAN_FilterId);          //Two 32-bit register List mode
+    CAN1->sFilterRegister[CAN_FilterId].FR1  =  CAN_MsgId;                  //32-bit identifier
+    CAN1->sFilterRegister[CAN_FilterId].FR2  =  CAN_MsgId;                  //32-bit identifier
+    CAN1->FFA1R                             &= ~(1<<CAN_FilterId);          //Filter assign to FIFO0
+    CAN1->FA1R                              |=  (1<<CAN_FilterId);          //Active filter
+    CAN1->FMR                               &= ~(1<<0);                     //Reset init mode
+
+    CAN_FilterId += 1;
+
+}
+
+void readMessage(void){
+  CAN_RxMsg.data[0] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR);
+  CAN_RxMsg.data[1] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 8);
+  CAN_RxMsg.data[2] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 16);
+  CAN_RxMsg.data[3] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 24);
+  CAN_RxMsg.data[4] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR);
+  CAN_RxMsg.data[5] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 8);
+  CAN_RxMsg.data[6] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 16);
+  CAN_RxMsg.data[7] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 24);
+
+  CAN1->RF0R |= CAN_RF0R_RFOM0;
+}
+
+void can_mesaj_gonderla(void){
+    //CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX
+    //CAN1->sTxMailBox[0].TIR |= (1<<2); //extended identifier
+    /*
+      bits between 3 to 20 (18 bits) are responsible for LSBs of Extended identifier
+      bits between 21 to 31 (11 bits) are resbonsible for MSBs of Extended identifier when bit 2 is 1 otherwise these bits are responsible for standart identifier (when bit 2 is 0)
+      obviously these bits are for Mailboxes (for transmitting identifiers)
+    */
+    //CAN1->sTxMailBox[0].TIR |= (0x3FFFF<<3); 
+    // Setup type information
+    //CAN1->sTxMailBox[0].TIR &= ~(1<<1); // data frame 
+    // Setup data bytes
+    CAN1->sTxMailBox[0].TDLR = (((unsigned int)CAN_TxMsg.data[3] << 24) | 
+                                ((unsigned int)CAN_TxMsg.data[2] << 16) |
+                                ((unsigned int)CAN_TxMsg.data[1] <<  8) | 
+    ((unsigned int)CAN_TxMsg.data[0]));
+    CAN1->sTxMailBox[0].TDHR = (((unsigned int)CAN_TxMsg.data[7] << 24) | 
+                                ((unsigned int)CAN_TxMsg.data[6] << 16) |
+                                ((unsigned int)CAN_TxMsg.data[5] <<  8) |
+                                ((unsigned int)CAN_TxMsg.data[4]));
+    //SETUP LENGTH             
+    CAN1->sTxMailBox[0].TDTR |= (1<<3);
+    CAN1->sTxMailBox[0].TDTR |= (1<<2);
+    CAN1->sTxMailBox[0].TDTR |= (1<<1);
+    CAN1->sTxMailBox[0].TDTR |= (1<<0);
+    CAN1->IER |= (1<<0);                   // Enable TME interrup
+    CAN1->sTxMailBox[0].TIR |= (1<<0);     // Transmit message   
+}
 
 
 
+//void USB_HP_CAN1_TX_IRQHandler(void){
+//    //CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX
+//    //CAN1->sTxMailBox[0].TIR |= (1<<2); //extended identifier
+//      
+//      //bits between 3 to 20 (18 bits) are responsible for LSBs of Extended identifier
+//      //bits between 21 to 31 (11 bits) are resbonsible for MSBs of Extended identifier when bit 2 is 1 otherwise these bits are responsible for standart identifier (when bit 2 is 0)
+//      //obviously these bits are for Mailboxes (for transmitting identifiers)
+//    // Setup type information
+//    //CAN1->sTxMailBox[0].TIR &= ~(1<<1); // data frame 
+//    // Setup data bytes
+//    CAN1->sTxMailBox[0].TDLR = (((unsigned int)31 << 24) | 
+//                                ((unsigned int)CAN_TxMsg.data[2] << 16) |
+//                                ((unsigned int)CAN_TxMsg.data[1] <<  8) | 
+//    ((unsigned int)CAN_TxMsg.data[0]));
+//    CAN1->sTxMailBox[0].TDHR = (((unsigned int)CAN_TxMsg.data[7] << 24) | 
+//                                ((unsigned int)CAN_TxMsg.data[6] << 16) |
+//                                ((unsigned int)CAN_TxMsg.data[5] <<  8) |
+//                                ((unsigned int)CAN_TxMsg.data[4]));
+//    //SETUP LENGTH             
+//    CAN1->sTxMailBox[0].TDTR |= (1<<3);
+//    CAN1->sTxMailBox[0].TDTR |= (1<<2);
+//    CAN1->sTxMailBox[0].TDTR |= (1<<1);
+//    CAN1->sTxMailBox[0].TDTR |= (1<<0);
+//    CAN1->IER |= (1<<0);                   // Enable TME interrup
+//    CAN1->sTxMailBox[0].TIR |= (1<<0);     // Transmit message
+//
+//    for(int i = 0; i<=1000000; i++);
+//}
+//
+//

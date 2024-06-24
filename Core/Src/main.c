@@ -55,26 +55,6 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint32_t TxMailbox[3];
-
-int gonder;
-
-uint8_t TxData[8] = {0};
-uint8_t RxData[8] = {0};
-
-void readMessage(void){
-  RxData[1] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR);
-  RxData[2] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 8);
-  RxData[3] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 16);
-  RxData[4] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 24);
-  RxData[5] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR);
-  RxData[6] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 8);
-  RxData[7] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 16);
-  RxData[8] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 24);
-
-  CAN1->RF0R |= CAN_RF0R_RFOM0;
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -84,6 +64,18 @@ void readMessage(void){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  CAN_TxMsg.id = 0x0003FFFF;
+  CAN_TxMsg.len = 8;
+  CAN_TxMsg.format = EXTENDED_FORMAT;
+  CAN_TxMsg.type = DATA_FRAME;
+  CAN_TxMsg.data[0] = 0x00;
+  CAN_TxMsg.data[1] = 0x01;
+  CAN_TxMsg.data[2] = 0x02;
+  CAN_TxMsg.data[3] = 0x03;
+  CAN_TxMsg.data[4] = 0x04;
+  CAN_TxMsg.data[5] = 0x05;
+  CAN_TxMsg.data[6] = 0x06;
+  CAN_TxMsg.data[7] = 0x07;
 
   /* USER CODE END 1 */
 
@@ -109,8 +101,9 @@ int main(void)
   clock_enable();
   gpio_enable();
   can_init();
+  can_filtre_ayarlama_takay03(33, 0);
+  //can_mesaj_gonderla();
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -118,34 +111,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX
-    CAN1->sTxMailBox[0].TIR |= (1<<2); //extended identifier
-    /*
-      bits between 3 to 20 (18 bits) are responsible for LSBs of Extended identifier
-      bits between 21 to 31 (11 bits) are resbonsible for MSBs of Extended identifier when bit 2 is 1 otherwise these bits are responsible for standart identifier (when bit 2 is 0)
-      obviously these bits are for Mailboxes (for transmitting identifiers)
-    */
-    CAN1->sTxMailBox[0].TIR |= (0x3FFFF<<3); 
-    // Setup type information
-    CAN1->sTxMailBox[0].TIR &= ~(1<<1); // data frame 
-    // Setup data bytes
-    CAN1->sTxMailBox[0].TDLR = (((unsigned int)TxData[3] << 24) | 
-                                ((unsigned int)TxData[2] << 16) |
-                                ((unsigned int)TxData[1] <<  8) | 
-    ((unsigned int)TxData[0]));
-    CAN1->sTxMailBox[0].TDHR = (((unsigned int)TxData[7] << 24) | 
-                                ((unsigned int)TxData[6] << 16) |
-                                ((unsigned int)TxData[5] <<  8) |
-                                ((unsigned int)TxData[4]));
-    //SETUP LENGTH             
-    CAN1->sTxMailBox[0].TDTR |= (1<<3);
-    CAN1->sTxMailBox[0].TDTR |= (1<<2);
-    CAN1->sTxMailBox[0].TDTR |= (1<<1);
-    CAN1->sTxMailBox[0].TDTR |= (1<<0);
-    CAN1->IER |= (1<<0);                   // Enable TME interrup
-    CAN1->sTxMailBox[0].TIR |= (1<<0);     // Transmit message
+    
     HAL_Delay(100);
-    readMessage();
+    //readMessage();
   }
   /* USER CODE END 3 */
 }
