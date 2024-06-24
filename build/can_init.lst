@@ -1,0 +1,475 @@
+ARM GAS  /tmp/ccXupRJq.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"can_init.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Core/Src/can_init.c"
+  18              		.section	.text.clock_enable,"ax",%progbits
+  19              		.align	1
+  20              		.global	clock_enable
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	clock_enable:
+  26              	.LFB65:
+   1:Core/Src/can_init.c **** #include "can_init.h"
+   2:Core/Src/can_init.c **** 
+   3:Core/Src/can_init.c **** void clock_enable(void){
+  27              		.loc 1 3 24 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+   4:Core/Src/can_init.c ****     RCC->APB2ENR |= (1<<0); //enable alternate function clock
+  32              		.loc 1 4 5 view .LVU1
+  33              		.loc 1 4 8 is_stmt 0 view .LVU2
+  34 0000 064B     		ldr	r3, .L2
+  35 0002 9A69     		ldr	r2, [r3, #24]
+  36              		.loc 1 4 18 view .LVU3
+  37 0004 42F00102 		orr	r2, r2, #1
+  38 0008 9A61     		str	r2, [r3, #24]
+   5:Core/Src/can_init.c ****     RCC->APB2ENR |= (1<<2); //enable gpioa clock
+  39              		.loc 1 5 5 is_stmt 1 view .LVU4
+  40              		.loc 1 5 8 is_stmt 0 view .LVU5
+  41 000a 9A69     		ldr	r2, [r3, #24]
+  42              		.loc 1 5 18 view .LVU6
+  43 000c 42F00402 		orr	r2, r2, #4
+  44 0010 9A61     		str	r2, [r3, #24]
+   6:Core/Src/can_init.c ****     RCC->APB1ENR |= (1<<25); //enable can clock
+  45              		.loc 1 6 5 is_stmt 1 view .LVU7
+  46              		.loc 1 6 8 is_stmt 0 view .LVU8
+  47 0012 DA69     		ldr	r2, [r3, #28]
+  48              		.loc 1 6 18 view .LVU9
+  49 0014 42F00072 		orr	r2, r2, #33554432
+  50 0018 DA61     		str	r2, [r3, #28]
+   7:Core/Src/can_init.c **** }
+  51              		.loc 1 7 1 view .LVU10
+ARM GAS  /tmp/ccXupRJq.s 			page 2
+
+
+  52 001a 7047     		bx	lr
+  53              	.L3:
+  54              		.align	2
+  55              	.L2:
+  56 001c 00100240 		.word	1073876992
+  57              		.cfi_endproc
+  58              	.LFE65:
+  60              		.section	.text.gpio_enable,"ax",%progbits
+  61              		.align	1
+  62              		.global	gpio_enable
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	gpio_enable:
+  68              	.LFB66:
+   8:Core/Src/can_init.c **** void gpio_enable(void){
+  69              		.loc 1 8 23 is_stmt 1 view -0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+   9:Core/Src/can_init.c ****     
+  10:Core/Src/can_init.c ****     //pa12 -> can_tx -> alternate function output push-pull
+  11:Core/Src/can_init.c ****     //pa11 -> can_rx -> input push-pull
+  12:Core/Src/can_init.c ****     
+  13:Core/Src/can_init.c ****     GPIOA->CRH = ~(0xFFFFFFFF);
+  74              		.loc 1 13 5 view .LVU12
+  75              		.loc 1 13 16 is_stmt 0 view .LVU13
+  76 0000 114B     		ldr	r3, .L5
+  77 0002 0022     		movs	r2, #0
+  78 0004 5A60     		str	r2, [r3, #4]
+  14:Core/Src/can_init.c **** 
+  15:Core/Src/can_init.c ****     GPIOA->CRH &= ~(1<<12);
+  79              		.loc 1 15 5 is_stmt 1 view .LVU14
+  80              		.loc 1 15 10 is_stmt 0 view .LVU15
+  81 0006 5A68     		ldr	r2, [r3, #4]
+  82              		.loc 1 15 16 view .LVU16
+  83 0008 22F48052 		bic	r2, r2, #4096
+  84 000c 5A60     		str	r2, [r3, #4]
+  16:Core/Src/can_init.c ****     GPIOA->CRH &= ~(1<<13);
+  85              		.loc 1 16 5 is_stmt 1 view .LVU17
+  86              		.loc 1 16 10 is_stmt 0 view .LVU18
+  87 000e 5A68     		ldr	r2, [r3, #4]
+  88              		.loc 1 16 16 view .LVU19
+  89 0010 22F40052 		bic	r2, r2, #8192
+  90 0014 5A60     		str	r2, [r3, #4]
+  17:Core/Src/can_init.c **** 
+  18:Core/Src/can_init.c ****     GPIOA->CRH &=  ~(1<<14);
+  91              		.loc 1 18 5 is_stmt 1 view .LVU20
+  92              		.loc 1 18 10 is_stmt 0 view .LVU21
+  93 0016 5A68     		ldr	r2, [r3, #4]
+  94              		.loc 1 18 16 view .LVU22
+  95 0018 22F48042 		bic	r2, r2, #16384
+  96 001c 5A60     		str	r2, [r3, #4]
+  19:Core/Src/can_init.c ****     GPIOA->CRH |=  (1<<15);
+  97              		.loc 1 19 5 is_stmt 1 view .LVU23
+  98              		.loc 1 19 10 is_stmt 0 view .LVU24
+ARM GAS  /tmp/ccXupRJq.s 			page 3
+
+
+  99 001e 5A68     		ldr	r2, [r3, #4]
+ 100              		.loc 1 19 16 view .LVU25
+ 101 0020 42F40042 		orr	r2, r2, #32768
+ 102 0024 5A60     		str	r2, [r3, #4]
+  20:Core/Src/can_init.c **** 
+  21:Core/Src/can_init.c ****     GPIOA->CRH |= (1<<16);
+ 103              		.loc 1 21 5 is_stmt 1 view .LVU26
+ 104              		.loc 1 21 10 is_stmt 0 view .LVU27
+ 105 0026 5A68     		ldr	r2, [r3, #4]
+ 106              		.loc 1 21 16 view .LVU28
+ 107 0028 42F48032 		orr	r2, r2, #65536
+ 108 002c 5A60     		str	r2, [r3, #4]
+  22:Core/Src/can_init.c ****     GPIOA->CRH |= (1<<17);
+ 109              		.loc 1 22 5 is_stmt 1 view .LVU29
+ 110              		.loc 1 22 10 is_stmt 0 view .LVU30
+ 111 002e 5A68     		ldr	r2, [r3, #4]
+ 112              		.loc 1 22 16 view .LVU31
+ 113 0030 42F40032 		orr	r2, r2, #131072
+ 114 0034 5A60     		str	r2, [r3, #4]
+  23:Core/Src/can_init.c **** 
+  24:Core/Src/can_init.c ****     GPIOA->CRH &= ~(1<<18);
+ 115              		.loc 1 24 5 is_stmt 1 view .LVU32
+ 116              		.loc 1 24 10 is_stmt 0 view .LVU33
+ 117 0036 5A68     		ldr	r2, [r3, #4]
+ 118              		.loc 1 24 16 view .LVU34
+ 119 0038 22F48022 		bic	r2, r2, #262144
+ 120 003c 5A60     		str	r2, [r3, #4]
+  25:Core/Src/can_init.c ****     GPIOA->CRH |= (1<<19);
+ 121              		.loc 1 25 5 is_stmt 1 view .LVU35
+ 122              		.loc 1 25 10 is_stmt 0 view .LVU36
+ 123 003e 5A68     		ldr	r2, [r3, #4]
+ 124              		.loc 1 25 16 view .LVU37
+ 125 0040 42F40022 		orr	r2, r2, #524288
+ 126 0044 5A60     		str	r2, [r3, #4]
+  26:Core/Src/can_init.c **** 
+  27:Core/Src/can_init.c **** }
+ 127              		.loc 1 27 1 view .LVU38
+ 128 0046 7047     		bx	lr
+ 129              	.L6:
+ 130              		.align	2
+ 131              	.L5:
+ 132 0048 00080140 		.word	1073809408
+ 133              		.cfi_endproc
+ 134              	.LFE66:
+ 136              		.section	.text.can_init,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	can_init
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 143              	can_init:
+ 144              	.LFB67:
+  28:Core/Src/can_init.c **** void can_init(void){
+ 145              		.loc 1 28 20 is_stmt 1 view -0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccXupRJq.s 			page 4
+
+
+ 149              		@ link register save eliminated.
+  29:Core/Src/can_init.c **** 
+  30:Core/Src/can_init.c ****     NVIC->ISER[0] |= (1 << (USB_HP_CAN1_TX_IRQn  & 0x1F));//
+ 150              		.loc 1 30 5 view .LVU40
+ 151              		.loc 1 30 15 is_stmt 0 view .LVU41
+ 152 0000 494B     		ldr	r3, .L8
+ 153 0002 1A68     		ldr	r2, [r3]
+ 154              		.loc 1 30 19 view .LVU42
+ 155 0004 42F40022 		orr	r2, r2, #524288
+ 156 0008 1A60     		str	r2, [r3]
+  31:Core/Src/can_init.c ****     NVIC->ISER[0] |= (1 << (USB_LP_CAN1_RX0_IRQn & 0x1F));//
+ 157              		.loc 1 31 5 is_stmt 1 view .LVU43
+ 158              		.loc 1 31 15 is_stmt 0 view .LVU44
+ 159 000a 1A68     		ldr	r2, [r3]
+ 160              		.loc 1 31 19 view .LVU45
+ 161 000c 42F48012 		orr	r2, r2, #1048576
+ 162 0010 1A60     		str	r2, [r3]
+  32:Core/Src/can_init.c ****     
+  33:Core/Src/can_init.c ****     CAN1->MCR = 0;
+ 163              		.loc 1 33 5 is_stmt 1 view .LVU46
+ 164              		.loc 1 33 15 is_stmt 0 view .LVU47
+ 165 0012 464B     		ldr	r3, .L8+4
+ 166 0014 0021     		movs	r1, #0
+ 167 0016 1960     		str	r1, [r3]
+  34:Core/Src/can_init.c ****     CAN1->MCR &= ~(CAN_MCR_SLEEP);
+ 168              		.loc 1 34 5 is_stmt 1 view .LVU48
+ 169              		.loc 1 34 9 is_stmt 0 view .LVU49
+ 170 0018 1A68     		ldr	r2, [r3]
+ 171              		.loc 1 34 15 view .LVU50
+ 172 001a 22F00202 		bic	r2, r2, #2
+ 173 001e 1A60     		str	r2, [r3]
+  35:Core/Src/can_init.c ****     CAN1->MCR |= CAN_MCR_INRQ;
+ 174              		.loc 1 35 5 is_stmt 1 view .LVU51
+ 175              		.loc 1 35 9 is_stmt 0 view .LVU52
+ 176 0020 1A68     		ldr	r2, [r3]
+ 177              		.loc 1 35 15 view .LVU53
+ 178 0022 42F00102 		orr	r2, r2, #1
+ 179 0026 1A60     		str	r2, [r3]
+  36:Core/Src/can_init.c ****     
+  37:Core/Src/can_init.c ****     
+  38:Core/Src/can_init.c ****     CAN1->IER = (CAN_IER_FMPIE0 | CAN_IER_TMEIE);
+ 180              		.loc 1 38 5 is_stmt 1 view .LVU54
+ 181              		.loc 1 38 15 is_stmt 0 view .LVU55
+ 182 0028 0322     		movs	r2, #3
+ 183 002a 5A61     		str	r2, [r3, #20]
+  39:Core/Src/can_init.c ****     
+  40:Core/Src/can_init.c ****     
+  41:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<2);
+ 184              		.loc 1 41 5 is_stmt 1 view .LVU56
+ 185              		.loc 1 41 9 is_stmt 0 view .LVU57
+ 186 002c 1A68     		ldr	r2, [r3]
+ 187              		.loc 1 41 17 view .LVU58
+ 188 002e 22F00402 		bic	r2, r2, #4
+ 189 0032 1A60     		str	r2, [r3]
+  42:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<3);
+ 190              		.loc 1 42 5 is_stmt 1 view .LVU59
+ 191              		.loc 1 42 9 is_stmt 0 view .LVU60
+ARM GAS  /tmp/ccXupRJq.s 			page 5
+
+
+ 192 0034 1A68     		ldr	r2, [r3]
+ 193              		.loc 1 42 17 view .LVU61
+ 194 0036 22F00802 		bic	r2, r2, #8
+ 195 003a 1A60     		str	r2, [r3]
+  43:Core/Src/can_init.c ****     CAN1->MCR   |=     (1<<4);
+ 196              		.loc 1 43 5 is_stmt 1 view .LVU62
+ 197              		.loc 1 43 9 is_stmt 0 view .LVU63
+ 198 003c 1A68     		ldr	r2, [r3]
+ 199              		.loc 1 43 17 view .LVU64
+ 200 003e 42F01002 		orr	r2, r2, #16
+ 201 0042 1A60     		str	r2, [r3]
+  44:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<5);
+ 202              		.loc 1 44 5 is_stmt 1 view .LVU65
+ 203              		.loc 1 44 9 is_stmt 0 view .LVU66
+ 204 0044 1A68     		ldr	r2, [r3]
+ 205              		.loc 1 44 17 view .LVU67
+ 206 0046 22F02002 		bic	r2, r2, #32
+ 207 004a 1A60     		str	r2, [r3]
+  45:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<6);
+ 208              		.loc 1 45 5 is_stmt 1 view .LVU68
+ 209              		.loc 1 45 9 is_stmt 0 view .LVU69
+ 210 004c 1A68     		ldr	r2, [r3]
+ 211              		.loc 1 45 17 view .LVU70
+ 212 004e 22F04002 		bic	r2, r2, #64
+ 213 0052 1A60     		str	r2, [r3]
+  46:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<7);
+ 214              		.loc 1 46 5 is_stmt 1 view .LVU71
+ 215              		.loc 1 46 9 is_stmt 0 view .LVU72
+ 216 0054 1A68     		ldr	r2, [r3]
+ 217              		.loc 1 46 17 view .LVU73
+ 218 0056 22F08002 		bic	r2, r2, #128
+ 219 005a 1A60     		str	r2, [r3]
+  47:Core/Src/can_init.c **** 
+  48:Core/Src/can_init.c ****     CAN1->BTR = 0;
+ 220              		.loc 1 48 5 is_stmt 1 view .LVU74
+ 221              		.loc 1 48 15 is_stmt 0 view .LVU75
+ 222 005c D961     		str	r1, [r3, #28]
+  49:Core/Src/can_init.c **** 	CAN1->BTR |= (1<<30);		//Loop Back Mode
+ 223              		.loc 1 49 2 is_stmt 1 view .LVU76
+ 224              		.loc 1 49 6 is_stmt 0 view .LVU77
+ 225 005e DA69     		ldr	r2, [r3, #28]
+ 226              		.loc 1 49 12 view .LVU78
+ 227 0060 42F08042 		orr	r2, r2, #1073741824
+ 228 0064 DA61     		str	r2, [r3, #28]
+  50:Core/Src/can_init.c **** 
+  51:Core/Src/can_init.c ****     CAN1->BTR |= (3<<24);
+ 229              		.loc 1 51 5 is_stmt 1 view .LVU79
+ 230              		.loc 1 51 9 is_stmt 0 view .LVU80
+ 231 0066 DA69     		ldr	r2, [r3, #28]
+ 232              		.loc 1 51 15 view .LVU81
+ 233 0068 42F04072 		orr	r2, r2, #50331648
+ 234 006c DA61     		str	r2, [r3, #28]
+  52:Core/Src/can_init.c ****     CAN1->BTR |= (4<<20);
+ 235              		.loc 1 52 5 is_stmt 1 view .LVU82
+ 236              		.loc 1 52 9 is_stmt 0 view .LVU83
+ 237 006e DA69     		ldr	r2, [r3, #28]
+ 238              		.loc 1 52 15 view .LVU84
+ARM GAS  /tmp/ccXupRJq.s 			page 6
+
+
+ 239 0070 42F48002 		orr	r2, r2, #4194304
+ 240 0074 DA61     		str	r2, [r3, #28]
+  53:Core/Src/can_init.c ****     CAN1->BTR |= (1<<16);
+ 241              		.loc 1 53 5 is_stmt 1 view .LVU85
+ 242              		.loc 1 53 9 is_stmt 0 view .LVU86
+ 243 0076 DA69     		ldr	r2, [r3, #28]
+ 244              		.loc 1 53 15 view .LVU87
+ 245 0078 42F48032 		orr	r2, r2, #65536
+ 246 007c DA61     		str	r2, [r3, #28]
+  54:Core/Src/can_init.c ****     CAN1->BTR |= (3<<0);
+ 247              		.loc 1 54 5 is_stmt 1 view .LVU88
+ 248              		.loc 1 54 9 is_stmt 0 view .LVU89
+ 249 007e DA69     		ldr	r2, [r3, #28]
+ 250              		.loc 1 54 15 view .LVU90
+ 251 0080 42F00302 		orr	r2, r2, #3
+ 252 0084 DA61     		str	r2, [r3, #28]
+  55:Core/Src/can_init.c ****     
+  56:Core/Src/can_init.c ****     CAN1->BTR &= ~(1<<16);
+ 253              		.loc 1 56 5 is_stmt 1 view .LVU91
+ 254              		.loc 1 56 9 is_stmt 0 view .LVU92
+ 255 0086 DA69     		ldr	r2, [r3, #28]
+ 256              		.loc 1 56 15 view .LVU93
+ 257 0088 22F48032 		bic	r2, r2, #65536
+ 258 008c DA61     		str	r2, [r3, #28]
+  57:Core/Src/can_init.c ****     CAN1->BTR |= (1<<17);
+ 259              		.loc 1 57 5 is_stmt 1 view .LVU94
+ 260              		.loc 1 57 9 is_stmt 0 view .LVU95
+ 261 008e DA69     		ldr	r2, [r3, #28]
+ 262              		.loc 1 57 15 view .LVU96
+ 263 0090 42F40032 		orr	r2, r2, #131072
+ 264 0094 DA61     		str	r2, [r3, #28]
+  58:Core/Src/can_init.c ****     CAN1->BTR &= ~(1<<18);
+ 265              		.loc 1 58 5 is_stmt 1 view .LVU97
+ 266              		.loc 1 58 9 is_stmt 0 view .LVU98
+ 267 0096 DA69     		ldr	r2, [r3, #28]
+ 268              		.loc 1 58 15 view .LVU99
+ 269 0098 22F48022 		bic	r2, r2, #262144
+ 270 009c DA61     		str	r2, [r3, #28]
+  59:Core/Src/can_init.c ****     CAN1->BTR &= ~(1<<19);
+ 271              		.loc 1 59 5 is_stmt 1 view .LVU100
+ 272              		.loc 1 59 9 is_stmt 0 view .LVU101
+ 273 009e DA69     		ldr	r2, [r3, #28]
+ 274              		.loc 1 59 15 view .LVU102
+ 275 00a0 22F40022 		bic	r2, r2, #524288
+ 276 00a4 DA61     		str	r2, [r3, #28]
+  60:Core/Src/can_init.c ****     
+  61:Core/Src/can_init.c ****     CAN1->BTR |=  (1<<20);
+ 277              		.loc 1 61 5 is_stmt 1 view .LVU103
+ 278              		.loc 1 61 9 is_stmt 0 view .LVU104
+ 279 00a6 DA69     		ldr	r2, [r3, #28]
+ 280              		.loc 1 61 15 view .LVU105
+ 281 00a8 42F48012 		orr	r2, r2, #1048576
+ 282 00ac DA61     		str	r2, [r3, #28]
+  62:Core/Src/can_init.c ****     CAN1->BTR |=  (1<<21);
+ 283              		.loc 1 62 5 is_stmt 1 view .LVU106
+ 284              		.loc 1 62 9 is_stmt 0 view .LVU107
+ 285 00ae DA69     		ldr	r2, [r3, #28]
+ARM GAS  /tmp/ccXupRJq.s 			page 7
+
+
+ 286              		.loc 1 62 15 view .LVU108
+ 287 00b0 42F40012 		orr	r2, r2, #2097152
+ 288 00b4 DA61     		str	r2, [r3, #28]
+  63:Core/Src/can_init.c ****     CAN1->BTR |=  (1<<22);
+ 289              		.loc 1 63 5 is_stmt 1 view .LVU109
+ 290              		.loc 1 63 9 is_stmt 0 view .LVU110
+ 291 00b6 DA69     		ldr	r2, [r3, #28]
+ 292              		.loc 1 63 15 view .LVU111
+ 293 00b8 42F48002 		orr	r2, r2, #4194304
+ 294 00bc DA61     		str	r2, [r3, #28]
+  64:Core/Src/can_init.c **** 
+  65:Core/Src/can_init.c **** 	CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
+ 295              		.loc 1 65 2 is_stmt 1 view .LVU112
+ 296              		.loc 1 65 6 is_stmt 0 view .LVU113
+ 297 00be 1A68     		ldr	r2, [r3]
+ 298              		.loc 1 65 12 view .LVU114
+ 299 00c0 22F00102 		bic	r2, r2, #1
+ 300 00c4 1A60     		str	r2, [r3]
+  66:Core/Src/can_init.c **** 
+  67:Core/Src/can_init.c **** 	CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_RTR;
+ 301              		.loc 1 67 2 is_stmt 1 view .LVU115
+ 302              		.loc 1 67 21 is_stmt 0 view .LVU116
+ 303 00c6 D3F88021 		ldr	r2, [r3, #384]
+ 304              		.loc 1 67 26 view .LVU117
+ 305 00ca 22F00202 		bic	r2, r2, #2
+ 306 00ce C3F88021 		str	r2, [r3, #384]
+  68:Core/Src/can_init.c **** 	CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_EXID;		//Standard Identifier
+ 307              		.loc 1 68 2 is_stmt 1 view .LVU118
+ 308              		.loc 1 68 21 is_stmt 0 view .LVU119
+ 309 00d2 D3F88021 		ldr	r2, [r3, #384]
+ 310              		.loc 1 68 26 view .LVU120
+ 311 00d6 6FF3D402 		bfc	r2, #3, #18
+ 312 00da C3F88021 		str	r2, [r3, #384]
+  69:Core/Src/can_init.c **** 	CAN1->sTxMailBox[0].TIR &= ~CAN_TI0R_STID;
+ 313              		.loc 1 69 2 is_stmt 1 view .LVU121
+ 314              		.loc 1 69 21 is_stmt 0 view .LVU122
+ 315 00de D3F88021 		ldr	r2, [r3, #384]
+ 316              		.loc 1 69 26 view .LVU123
+ 317 00e2 C2F31402 		ubfx	r2, r2, #0, #21
+ 318 00e6 C3F88021 		str	r2, [r3, #384]
+  70:Core/Src/can_init.c **** 	CAN1->sTxMailBox[0].TIR |= (0xFF << CAN_TI0R_STID_Pos);				//Message ID = 1
+ 319              		.loc 1 70 2 is_stmt 1 view .LVU124
+ 320              		.loc 1 70 21 is_stmt 0 view .LVU125
+ 321 00ea D3F88021 		ldr	r2, [r3, #384]
+ 322              		.loc 1 70 26 view .LVU126
+ 323 00ee 42F0FF52 		orr	r2, r2, #534773760
+ 324 00f2 C3F88021 		str	r2, [r3, #384]
+  71:Core/Src/can_init.c **** 
+  72:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDTR |= (1<<3);
+ 325              		.loc 1 72 5 is_stmt 1 view .LVU127
+ 326              		.loc 1 72 24 is_stmt 0 view .LVU128
+ 327 00f6 D3F88421 		ldr	r2, [r3, #388]
+ 328              		.loc 1 72 30 view .LVU129
+ 329 00fa 42F00802 		orr	r2, r2, #8
+ 330 00fe C3F88421 		str	r2, [r3, #388]
+  73:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDTR |= (1<<2);
+ 331              		.loc 1 73 5 is_stmt 1 view .LVU130
+ARM GAS  /tmp/ccXupRJq.s 			page 8
+
+
+ 332              		.loc 1 73 24 is_stmt 0 view .LVU131
+ 333 0102 D3F88421 		ldr	r2, [r3, #388]
+ 334              		.loc 1 73 30 view .LVU132
+ 335 0106 42F00402 		orr	r2, r2, #4
+ 336 010a C3F88421 		str	r2, [r3, #388]
+  74:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDTR |= (1<<1);
+ 337              		.loc 1 74 5 is_stmt 1 view .LVU133
+ 338              		.loc 1 74 24 is_stmt 0 view .LVU134
+ 339 010e D3F88421 		ldr	r2, [r3, #388]
+ 340              		.loc 1 74 30 view .LVU135
+ 341 0112 42F00202 		orr	r2, r2, #2
+ 342 0116 C3F88421 		str	r2, [r3, #388]
+  75:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDTR |= (1<<0);
+ 343              		.loc 1 75 5 is_stmt 1 view .LVU136
+ 344              		.loc 1 75 24 is_stmt 0 view .LVU137
+ 345 011a D3F88421 		ldr	r2, [r3, #388]
+ 346              		.loc 1 75 30 view .LVU138
+ 347 011e 42F00102 		orr	r2, r2, #1
+ 348 0122 C3F88421 		str	r2, [r3, #388]
+  76:Core/Src/can_init.c **** 
+  77:Core/Src/can_init.c **** }
+ 349              		.loc 1 77 1 view .LVU139
+ 350 0126 7047     		bx	lr
+ 351              	.L9:
+ 352              		.align	2
+ 353              	.L8:
+ 354 0128 00E100E0 		.word	-536813312
+ 355 012c 00640040 		.word	1073767424
+ 356              		.cfi_endproc
+ 357              	.LFE67:
+ 359              		.text
+ 360              	.Letext0:
+ 361              		.file 2 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 362              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 363              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 364              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ARM GAS  /tmp/ccXupRJq.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 can_init.c
+     /tmp/ccXupRJq.s:19     .text.clock_enable:00000000 $t
+     /tmp/ccXupRJq.s:25     .text.clock_enable:00000000 clock_enable
+     /tmp/ccXupRJq.s:56     .text.clock_enable:0000001c $d
+     /tmp/ccXupRJq.s:61     .text.gpio_enable:00000000 $t
+     /tmp/ccXupRJq.s:67     .text.gpio_enable:00000000 gpio_enable
+     /tmp/ccXupRJq.s:132    .text.gpio_enable:00000048 $d
+     /tmp/ccXupRJq.s:137    .text.can_init:00000000 $t
+     /tmp/ccXupRJq.s:143    .text.can_init:00000000 can_init
+     /tmp/ccXupRJq.s:354    .text.can_init:00000128 $d
+
+NO UNDEFINED SYMBOLS
