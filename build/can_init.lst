@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccDnY7Ys.s 			page 1
+ARM GAS  /tmp/ccjI2eod.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
   46              		.loc 1 10 8 is_stmt 0 view .LVU8
   47 0012 DA69     		ldr	r2, [r3, #28]
   48              		.loc 1 10 18 view .LVU9
-ARM GAS  /tmp/ccDnY7Ys.s 			page 2
+ARM GAS  /tmp/ccjI2eod.s 			page 2
 
 
   49 0014 42F00072 		orr	r2, r2, #33554432
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
   93 0016 5A68     		ldr	r2, [r3, #4]
   94              		.loc 1 22 16 view .LVU22
   95 0018 22F48042 		bic	r2, r2, #16384
-ARM GAS  /tmp/ccDnY7Ys.s 			page 3
+ARM GAS  /tmp/ccjI2eod.s 			page 3
 
 
   96 001c 5A60     		str	r2, [r3, #4]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  143              	can_init:
  144              	.LFB67:
   32:Core/Src/can_init.c **** void can_init(void){
-ARM GAS  /tmp/ccDnY7Ys.s 			page 4
+ARM GAS  /tmp/ccjI2eod.s 			page 4
 
 
  145              		.loc 1 32 20 is_stmt 1 view -0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  187              		.loc 1 44 17 view .LVU58
  188 002e 21F48031 		bic	r1, r1, #65536
  189 0032 1960     		str	r1, [r3]
-ARM GAS  /tmp/ccDnY7Ys.s 			page 5
+ARM GAS  /tmp/ccjI2eod.s 			page 5
 
 
   45:Core/Src/can_init.c ****     CAN1->MCR   &=    ~(1<<2);  //Transfer priority driven by the identifier
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  234 006c D961     		str	r1, [r3, #28]
   55:Core/Src/can_init.c ****     CAN1->BTR   |=    (3<<0);   //brp = 3
  235              		.loc 1 55 5 is_stmt 1 view .LVU82
-ARM GAS  /tmp/ccDnY7Ys.s 			page 6
+ARM GAS  /tmp/ccjI2eod.s 			page 6
 
 
  236              		.loc 1 55 9 is_stmt 0 view .LVU83
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  279 00a6 D969     		ldr	r1, [r3, #28]
  280              		.loc 1 66 17 view .LVU105
  281 00a8 41F48001 		orr	r1, r1, #4194304
-ARM GAS  /tmp/ccDnY7Ys.s 			page 7
+ARM GAS  /tmp/ccjI2eod.s 			page 7
 
 
  282 00ac D961     		str	r1, [r3, #28]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  313 00d6 83BB     		cbnz	r3, .L10
   90:Core/Src/can_init.c ****         CAN1->sTxMailBox[0].TIR &= ~(1<<1);
  314              		.loc 1 90 9 is_stmt 1 view .LVU121
-ARM GAS  /tmp/ccDnY7Ys.s 			page 8
+ARM GAS  /tmp/ccjI2eod.s 			page 8
 
 
  315              		.loc 1 90 28 is_stmt 0 view .LVU122
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  355              	.L8:
   85:Core/Src/can_init.c ****         CAN1->sTxMailBox[0].TIR |= (1<<2);
  356              		.loc 1 85 10 is_stmt 1 view .LVU140
-ARM GAS  /tmp/ccDnY7Ys.s 			page 9
+ARM GAS  /tmp/ccjI2eod.s 			page 9
 
 
   85:Core/Src/can_init.c ****         CAN1->sTxMailBox[0].TIR |= (1<<2);
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  401              		.cfi_startproc
  402              		@ args = 0, pretend = 0, frame = 0
  403              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccDnY7Ys.s 			page 10
+ARM GAS  /tmp/ccjI2eod.s 			page 10
 
 
  404              		@ link register save eliminated.
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  449 0038 C3F80402 		str	r0, [r3, #516]
  117:Core/Src/can_init.c ****     CAN1->sFilterRegister[CAN_FilterId].FR1  =  CAN_MsgId;                  //32-bit identifier
  450              		.loc 1 117 5 is_stmt 1 view .LVU170
-ARM GAS  /tmp/ccDnY7Ys.s 			page 11
+ARM GAS  /tmp/ccjI2eod.s 			page 11
 
 
  451              		.loc 1 117 46 is_stmt 0 view .LVU171
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  125:Core/Src/can_init.c **** 
  126:Core/Src/can_init.c **** void readMessage(void){
  500              		.loc 1 126 23 is_stmt 1 view -0
-ARM GAS  /tmp/ccDnY7Ys.s 			page 12
+ARM GAS  /tmp/ccjI2eod.s 			page 12
 
 
  501              		.cfi_startproc
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  548              		.loc 1 133 51 view .LVU209
  549 0034 090C     		lsrs	r1, r1, #16
  550              		.loc 1 133 21 view .LVU210
-ARM GAS  /tmp/ccDnY7Ys.s 			page 13
+ARM GAS  /tmp/ccjI2eod.s 			page 13
 
 
  551 0036 9172     		strb	r1, [r2, #10]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  589              		.loc 1 151 5 view .LVU220
  590              		.loc 1 151 62 is_stmt 0 view .LVU221
  591 0000 1E49     		ldr	r1, .L23
-ARM GAS  /tmp/ccDnY7Ys.s 			page 14
+ARM GAS  /tmp/ccjI2eod.s 			page 14
 
 
  592 0002 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  629              		.loc 1 160 5 is_stmt 1 view .LVU240
  630              		.loc 1 160 24 is_stmt 0 view .LVU241
  631 0034 D3F88421 		ldr	r2, [r3, #388]
-ARM GAS  /tmp/ccDnY7Ys.s 			page 15
+ARM GAS  /tmp/ccjI2eod.s 			page 15
 
 
  632              		.loc 1 160 30 view .LVU242
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  682              	USB_HP_CAN1_TX_IRQHandler:
  683              	.LFB71:
  167:Core/Src/can_init.c **** 
-ARM GAS  /tmp/ccDnY7Ys.s 			page 16
+ARM GAS  /tmp/ccjI2eod.s 			page 16
 
 
  168:Core/Src/can_init.c **** void USB_HP_CAN1_TX_IRQHandler(void){
@@ -919,7 +919,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  178:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDLR = (((unsigned int)CAN_TxMsg.data[3] << 24) | 
  689              		.loc 1 178 5 view .LVU260
  690              		.loc 1 178 62 is_stmt 0 view .LVU261
- 691 0000 1E49     		ldr	r1, .L26
+ 691 0000 2149     		ldr	r1, .L28
  692 0002 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
  179:Core/Src/can_init.c ****                                 ((unsigned int)CAN_TxMsg.data[2] << 16) |
  693              		.loc 1 179 62 view .LVU262
@@ -943,7 +943,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  706 0014 1A43     		orrs	r2, r2, r3
  178:Core/Src/can_init.c ****                                 ((unsigned int)CAN_TxMsg.data[2] << 16) |
  707              		.loc 1 178 30 view .LVU269
- 708 0016 1A4B     		ldr	r3, .L26+4
+ 708 0016 1D4B     		ldr	r3, .L28+4
  709 0018 C3F88821 		str	r2, [r3, #392]
  182:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TDHR = (((unsigned int)CAN_TxMsg.data[7] << 24) | 
  710              		.loc 1 182 5 is_stmt 1 view .LVU270
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  717              		.loc 1 182 73 view .LVU274
  718 0022 42EA0062 		orr	r2, r2, r0, lsl #24
  184:Core/Src/can_init.c ****                                 ((unsigned int)CAN_TxMsg.data[5] <<  8) |
-ARM GAS  /tmp/ccDnY7Ys.s 			page 17
+ARM GAS  /tmp/ccjI2eod.s 			page 17
 
 
  719              		.loc 1 184 62 view .LVU275
@@ -1018,79 +1018,102 @@ ARM GAS  /tmp/ccDnY7Ys.s 			page 1
  762              		.loc 1 192 29 view .LVU297
  763 0070 42F00102 		orr	r2, r2, #1
  764 0074 C3F88021 		str	r2, [r3, #384]
-ARM GAS  /tmp/ccDnY7Ys.s 			page 18
+ARM GAS  /tmp/ccjI2eod.s 			page 18
 
 
  193:Core/Src/can_init.c **** 
- 194:Core/Src/can_init.c ****     //for(int i = 0; i<=10; i++);
+ 194:Core/Src/can_init.c ****     for(int i = 0; i<=10000000; i++);
+ 765              		.loc 1 194 5 is_stmt 1 view .LVU298
+ 766              	.LBB2:
+ 767              		.loc 1 194 9 view .LVU299
+ 768              	.LVL4:
+ 769              		.loc 1 194 13 is_stmt 0 view .LVU300
+ 770 0078 0023     		movs	r3, #0
+ 771              		.loc 1 194 5 view .LVU301
+ 772 007a 00E0     		b	.L26
+ 773              	.LVL5:
+ 774              	.L27:
+ 775              		.loc 1 194 34 is_stmt 1 discriminator 3 view .LVU302
+ 776 007c 0133     		adds	r3, r3, #1
+ 777              	.LVL6:
+ 778              	.L26:
+ 779              		.loc 1 194 21 discriminator 1 view .LVU303
+ 780 007e 044A     		ldr	r2, .L28+8
+ 781 0080 9342     		cmp	r3, r2
+ 782 0082 FBDD     		ble	.L27
+ 783              	.LBE2:
  195:Core/Src/can_init.c **** }
- 765              		.loc 1 195 1 view .LVU298
- 766 0078 7047     		bx	lr
- 767              	.L27:
- 768 007a 00BF     		.align	2
- 769              	.L26:
- 770 007c 00000000 		.word	CAN_TxMsg
- 771 0080 00640040 		.word	1073767424
- 772              		.cfi_endproc
- 773              	.LFE71:
- 775              		.section	.bss.CAN_FilterId.0,"aw",%nobits
- 776              		.align	1
- 779              	CAN_FilterId.0:
- 780 0000 0000     		.space	2
- 781              		.global	CAN_RxMsg
- 782              		.section	.bss.CAN_RxMsg,"aw",%nobits
- 783              		.align	2
- 786              	CAN_RxMsg:
- 787 0000 00000000 		.space	16
- 787      00000000 
- 787      00000000 
- 787      00000000 
- 788              		.global	CAN_TxMsg
- 789              		.section	.bss.CAN_TxMsg,"aw",%nobits
- 790              		.align	2
- 793              	CAN_TxMsg:
- 794 0000 00000000 		.space	16
- 794      00000000 
- 794      00000000 
- 794      00000000 
- 795              		.text
- 796              	.Letext0:
- 797              		.file 2 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 798              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 799              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
- 800              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 801              		.file 6 "Core/Inc/can_init.h"
-ARM GAS  /tmp/ccDnY7Ys.s 			page 19
+ 784              		.loc 1 195 1 is_stmt 0 view .LVU304
+ 785 0084 7047     		bx	lr
+ 786              	.L29:
+ 787 0086 00BF     		.align	2
+ 788              	.L28:
+ 789 0088 00000000 		.word	CAN_TxMsg
+ 790 008c 00640040 		.word	1073767424
+ 791 0090 80969800 		.word	10000000
+ 792              		.cfi_endproc
+ 793              	.LFE71:
+ 795              		.section	.bss.CAN_FilterId.0,"aw",%nobits
+ 796              		.align	1
+ 799              	CAN_FilterId.0:
+ 800 0000 0000     		.space	2
+ 801              		.global	CAN_RxMsg
+ 802              		.section	.bss.CAN_RxMsg,"aw",%nobits
+ 803              		.align	2
+ 806              	CAN_RxMsg:
+ 807 0000 00000000 		.space	16
+ 807      00000000 
+ 807      00000000 
+ 807      00000000 
+ 808              		.global	CAN_TxMsg
+ 809              		.section	.bss.CAN_TxMsg,"aw",%nobits
+ 810              		.align	2
+ 813              	CAN_TxMsg:
+ 814 0000 00000000 		.space	16
+ 814      00000000 
+ 814      00000000 
+ 814      00000000 
+ 815              		.text
+ 816              	.Letext0:
+ 817              		.file 2 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 818              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 819              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ARM GAS  /tmp/ccjI2eod.s 			page 19
+
+
+ 820              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 821              		.file 6 "Core/Inc/can_init.h"
+ARM GAS  /tmp/ccjI2eod.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 can_init.c
-     /tmp/ccDnY7Ys.s:19     .text.clock_enable:00000000 $t
-     /tmp/ccDnY7Ys.s:25     .text.clock_enable:00000000 clock_enable
-     /tmp/ccDnY7Ys.s:56     .text.clock_enable:0000001c $d
-     /tmp/ccDnY7Ys.s:61     .text.gpio_enable:00000000 $t
-     /tmp/ccDnY7Ys.s:67     .text.gpio_enable:00000000 gpio_enable
-     /tmp/ccDnY7Ys.s:132    .text.gpio_enable:00000048 $d
-     /tmp/ccDnY7Ys.s:137    .text.can_init:00000000 $t
-     /tmp/ccDnY7Ys.s:143    .text.can_init:00000000 can_init
-     /tmp/ccDnY7Ys.s:384    .text.can_init:00000150 $d
-     /tmp/ccDnY7Ys.s:793    .bss.CAN_TxMsg:00000000 CAN_TxMsg
-     /tmp/ccDnY7Ys.s:391    .text.can_filtre_ayarlama_takay03:00000000 $t
-     /tmp/ccDnY7Ys.s:397    .text.can_filtre_ayarlama_takay03:00000000 can_filtre_ayarlama_takay03
-     /tmp/ccDnY7Ys.s:486    .text.can_filtre_ayarlama_takay03:00000074 $d
-     /tmp/ccDnY7Ys.s:779    .bss.CAN_FilterId.0:00000000 CAN_FilterId.0
-     /tmp/ccDnY7Ys.s:492    .text.readMessage:00000000 $t
-     /tmp/ccDnY7Ys.s:498    .text.readMessage:00000000 readMessage
-     /tmp/ccDnY7Ys.s:570    .text.readMessage:0000004c $d
-     /tmp/ccDnY7Ys.s:786    .bss.CAN_RxMsg:00000000 CAN_RxMsg
-     /tmp/ccDnY7Ys.s:576    .text.can_mesaj_gonderla:00000000 $t
-     /tmp/ccDnY7Ys.s:582    .text.can_mesaj_gonderla:00000000 can_mesaj_gonderla
-     /tmp/ccDnY7Ys.s:670    .text.can_mesaj_gonderla:0000007c $d
-     /tmp/ccDnY7Ys.s:676    .text.USB_HP_CAN1_TX_IRQHandler:00000000 $t
-     /tmp/ccDnY7Ys.s:682    .text.USB_HP_CAN1_TX_IRQHandler:00000000 USB_HP_CAN1_TX_IRQHandler
-     /tmp/ccDnY7Ys.s:770    .text.USB_HP_CAN1_TX_IRQHandler:0000007c $d
-     /tmp/ccDnY7Ys.s:776    .bss.CAN_FilterId.0:00000000 $d
-     /tmp/ccDnY7Ys.s:783    .bss.CAN_RxMsg:00000000 $d
-     /tmp/ccDnY7Ys.s:790    .bss.CAN_TxMsg:00000000 $d
+     /tmp/ccjI2eod.s:19     .text.clock_enable:00000000 $t
+     /tmp/ccjI2eod.s:25     .text.clock_enable:00000000 clock_enable
+     /tmp/ccjI2eod.s:56     .text.clock_enable:0000001c $d
+     /tmp/ccjI2eod.s:61     .text.gpio_enable:00000000 $t
+     /tmp/ccjI2eod.s:67     .text.gpio_enable:00000000 gpio_enable
+     /tmp/ccjI2eod.s:132    .text.gpio_enable:00000048 $d
+     /tmp/ccjI2eod.s:137    .text.can_init:00000000 $t
+     /tmp/ccjI2eod.s:143    .text.can_init:00000000 can_init
+     /tmp/ccjI2eod.s:384    .text.can_init:00000150 $d
+     /tmp/ccjI2eod.s:813    .bss.CAN_TxMsg:00000000 CAN_TxMsg
+     /tmp/ccjI2eod.s:391    .text.can_filtre_ayarlama_takay03:00000000 $t
+     /tmp/ccjI2eod.s:397    .text.can_filtre_ayarlama_takay03:00000000 can_filtre_ayarlama_takay03
+     /tmp/ccjI2eod.s:486    .text.can_filtre_ayarlama_takay03:00000074 $d
+     /tmp/ccjI2eod.s:799    .bss.CAN_FilterId.0:00000000 CAN_FilterId.0
+     /tmp/ccjI2eod.s:492    .text.readMessage:00000000 $t
+     /tmp/ccjI2eod.s:498    .text.readMessage:00000000 readMessage
+     /tmp/ccjI2eod.s:570    .text.readMessage:0000004c $d
+     /tmp/ccjI2eod.s:806    .bss.CAN_RxMsg:00000000 CAN_RxMsg
+     /tmp/ccjI2eod.s:576    .text.can_mesaj_gonderla:00000000 $t
+     /tmp/ccjI2eod.s:582    .text.can_mesaj_gonderla:00000000 can_mesaj_gonderla
+     /tmp/ccjI2eod.s:670    .text.can_mesaj_gonderla:0000007c $d
+     /tmp/ccjI2eod.s:676    .text.USB_HP_CAN1_TX_IRQHandler:00000000 $t
+     /tmp/ccjI2eod.s:682    .text.USB_HP_CAN1_TX_IRQHandler:00000000 USB_HP_CAN1_TX_IRQHandler
+     /tmp/ccjI2eod.s:789    .text.USB_HP_CAN1_TX_IRQHandler:00000088 $d
+     /tmp/ccjI2eod.s:796    .bss.CAN_FilterId.0:00000000 $d
+     /tmp/ccjI2eod.s:803    .bss.CAN_RxMsg:00000000 $d
+     /tmp/ccjI2eod.s:810    .bss.CAN_TxMsg:00000000 $d
 
 NO UNDEFINED SYMBOLS

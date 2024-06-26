@@ -191,5 +191,5 @@ void USB_HP_CAN1_TX_IRQHandler(void){
     CAN1->IER |= (1<<0);                   // Enable TME interrup
     CAN1->sTxMailBox[0].TIR |= (1<<0);     // Transmit message
 
-    //for(int i = 0; i<=10; i++);
+    for(int i = 0; i<=10000000; i++);
 }
