@@ -64,18 +64,18 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  CAN_TxMsg.id = 0x0003FFFF;
+  CAN_TxMsg.id = 0xFF;
   CAN_TxMsg.len = 8;
-  CAN_TxMsg.format = EXTENDED_FORMAT;
+  CAN_TxMsg.format = STANDAR_FORMAT;
   CAN_TxMsg.type = DATA_FRAME;
-  CAN_TxMsg.data[0] = 0x00;
-  CAN_TxMsg.data[1] = 0x01;
-  CAN_TxMsg.data[2] = 0x02;
-  CAN_TxMsg.data[3] = 0x03;
-  CAN_TxMsg.data[4] = 0x04;
-  CAN_TxMsg.data[5] = 0x05;
-  CAN_TxMsg.data[6] = 0x06;
-  CAN_TxMsg.data[7] = 0x07;
+  CAN_TxMsg.data[0] = 31;
+  CAN_TxMsg.data[1] = 31;
+  CAN_TxMsg.data[2] = 31;
+  CAN_TxMsg.data[3] = 31;
+  CAN_TxMsg.data[4] = 31;
+  CAN_TxMsg.data[5] = 31;
+  CAN_TxMsg.data[6] = 31;
+  CAN_TxMsg.data[7] = 31;
 
   /* USER CODE END 1 */
 
@@ -102,7 +102,7 @@ int main(void)
   gpio_enable();
   can_init();
   can_filtre_ayarlama_takay03(33, 0);
-  //can_mesaj_gonderla();
+  can_mesaj_gonderla();
   /* USER CODE END 2 */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
