@@ -64,18 +64,18 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  CAN_TxMsg.id = 0xFF;
+  CAN_TxMsg.id = 0x6FF;
   CAN_TxMsg.len = 8;
-  CAN_TxMsg.format = STANDAR_FORMAT;
+  CAN_TxMsg.format = STANDART_FORMAT;
   CAN_TxMsg.type = DATA_FRAME;
-  CAN_TxMsg.data[0] = 31;
-  CAN_TxMsg.data[1] = 31;
-  CAN_TxMsg.data[2] = 31;
-  CAN_TxMsg.data[3] = 31;
-  CAN_TxMsg.data[4] = 31;
-  CAN_TxMsg.data[5] = 31;
-  CAN_TxMsg.data[6] = 31;
-  CAN_TxMsg.data[7] = 31;
+  CAN_TxMsg.data[0] = 0x004;
+  CAN_TxMsg.data[1] = 0x004;
+  CAN_TxMsg.data[2] = 0x004;
+  CAN_TxMsg.data[3] = 0x004;
+  CAN_TxMsg.data[4] = 0x004;
+  CAN_TxMsg.data[5] = 0x004;
+  CAN_TxMsg.data[6] = 0x004;
+  CAN_TxMsg.data[7] = 0x004;
 
   /* USER CODE END 1 */
 
@@ -93,15 +93,19 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit */
+  /* USER CODE END SysInit*/
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  led_init();
   clock_enable();
   gpio_enable();
   can_init();
-  can_filtre_ayarlama_takay03(33, 0);
+  can_filtre_ayarlama_takay03(0x6FF, 0);
+  Set_TxMailBox(0, CAN_TxMsg);
+  CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
+
   can_mesaj_gonderla();
   /* USER CODE END 2 */
   /* Infinite loop */
@@ -109,11 +113,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    //readMessage(); 
     /* USER CODE BEGIN 3 */
-    
-    HAL_Delay(100);
-    //readMessage();
+
   }
   /* USER CODE END 3 */
 }
