@@ -62,7 +62,7 @@ void can_init(void){
     CAN1->MCR   |=    (1<<3);  //Receive FIFO locked mode 
     CAN1->MCR   |=     (1<<4);  //No automatic retransmission
     CAN1->MCR   &=    ~(1<<5);  //No automatic wake-up mode
-    CAN1->MCR   &=    ~(1<<6);  //No automatic bus-off managment 
+    CAN1->MCR   |=    (1<<6);  //No automatic bus-off managment 
     CAN1->MCR   &=    ~(1<<7);  //Time triggered mode disabled
 
     CAN1->BTR = 0;              //Reset the bit timing register (reset value 0x0123 0000)
