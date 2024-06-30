@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpT1VcF.s 			page 1
+ARM GAS  /tmp/ccsVbt6z.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
   46              		.loc 1 10 8 is_stmt 0 view .LVU8
   47 0012 DA69     		ldr	r2, [r3, #28]
   48              		.loc 1 10 18 view .LVU9
-ARM GAS  /tmp/ccpT1VcF.s 			page 2
+ARM GAS  /tmp/ccsVbt6z.s 			page 2
 
 
   49 0014 42F00072 		orr	r2, r2, #33554432
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
   96 001c 5A68     		ldr	r2, [r3, #4]
   97              		.loc 1 19 16 view .LVU23
   98 001e 22F48002 		bic	r2, r2, #4194304
-ARM GAS  /tmp/ccpT1VcF.s 			page 3
+ARM GAS  /tmp/ccsVbt6z.s 			page 3
 
 
   99 0022 5A60     		str	r2, [r3, #4]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  147              	.L8:
  148 000c 00100140 		.word	1073811456
  149              		.cfi_endproc
-ARM GAS  /tmp/ccpT1VcF.s 			page 4
+ARM GAS  /tmp/ccsVbt6z.s 			page 4
 
 
  150              	.LFE67:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  194 0024 5A60     		str	r2, [r3, #4]
   40:Core/Src/can_init.c **** 
   41:Core/Src/can_init.c ****     GPIOA->CRH |= (1<<16);
-ARM GAS  /tmp/ccpT1VcF.s 			page 5
+ARM GAS  /tmp/ccsVbt6z.s 			page 5
 
 
  195              		.loc 1 41 5 is_stmt 1 view .LVU51
@@ -297,8 +297,8 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
   50:Core/Src/can_init.c ****     NVIC->ISER[0] |= (1 << (USB_HP_CAN1_TX_IRQn  & 0x1F));//
  242              		.loc 1 50 5 view .LVU65
  243              		.loc 1 50 15 is_stmt 0 view .LVU66
- 244 0000 214B     		ldr	r3, .L14
-ARM GAS  /tmp/ccpT1VcF.s 			page 6
+ 244 0000 234B     		ldr	r3, .L14
+ARM GAS  /tmp/ccsVbt6z.s 			page 6
 
 
  245 0002 1A68     		ldr	r2, [r3]
@@ -316,7 +316,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
   53:Core/Src/can_init.c ****     CAN1->MCR = 0;
  255              		.loc 1 53 5 is_stmt 1 view .LVU71
  256              		.loc 1 53 15 is_stmt 0 view .LVU72
- 257 0012 1E4B     		ldr	r3, .L14+4
+ 257 0012 204B     		ldr	r3, .L14+4
  258 0014 0021     		movs	r1, #0
  259 0016 1960     		str	r1, [r3]
   54:Core/Src/can_init.c ****     CAN1->MCR &= ~(CAN_MCR_SLEEP);
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  288 003a 22F00402 		bic	r2, r2, #4
  289 003e 1A60     		str	r2, [r3]
   62:Core/Src/can_init.c ****     CAN1->MCR   |=    (1<<3);  //Receive FIFO locked mode 
-ARM GAS  /tmp/ccpT1VcF.s 			page 7
+ARM GAS  /tmp/ccsVbt6z.s 			page 7
 
 
  290              		.loc 1 62 5 is_stmt 1 view .LVU88
@@ -401,62 +401,68 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  321              		.loc 1 68 15 is_stmt 0 view .LVU104
  322 0068 D961     		str	r1, [r3, #28]
   69:Core/Src/can_init.c **** 
-  70:Core/Src/can_init.c **** 
+  70:Core/Src/can_init.c ****     CAN1->BTR |= (1<<30);
+ 323              		.loc 1 70 5 is_stmt 1 view .LVU105
+ 324              		.loc 1 70 9 is_stmt 0 view .LVU106
+ 325 006a DA69     		ldr	r2, [r3, #28]
+ 326              		.loc 1 70 15 view .LVU107
+ 327 006c 42F08042 		orr	r2, r2, #1073741824
+ 328 0070 DA61     		str	r2, [r3, #28]
   71:Core/Src/can_init.c ****     CAN1->BTR &= ~(((        0x03) << 24) | ((        0x07) << 20) | ((         0x0F) << 16) | (   
- 323              		.loc 1 71 5 is_stmt 1 view .LVU105
- 324              		.loc 1 71 9 is_stmt 0 view .LVU106
- 325 006a D969     		ldr	r1, [r3, #28]
- 326              		.loc 1 71 15 view .LVU107
- 327 006c 084A     		ldr	r2, .L14+8
- 328 006e 0A40     		ands	r2, r2, r1
- 329 0070 DA61     		str	r2, [r3, #28]
+ 329              		.loc 1 71 5 is_stmt 1 view .LVU108
+ 330              		.loc 1 71 9 is_stmt 0 view .LVU109
+ 331 0072 D969     		ldr	r1, [r3, #28]
+ 332              		.loc 1 71 15 view .LVU110
+ 333 0074 084A     		ldr	r2, .L14+8
+ 334 0076 0A40     		ands	r2, r2, r1
+ 335 0078 DA61     		str	r2, [r3, #28]
   72:Core/Src/can_init.c ****     CAN1->BTR |=  ((((4-1) & 0x03) << 24) | (((5-1) & 0x07) << 20) | (((12-1) & 0x0F) << 16) | (3 &
- 330              		.loc 1 72 5 is_stmt 1 view .LVU108
- 331              		.loc 1 72 9 is_stmt 0 view .LVU109
- 332 0072 DA69     		ldr	r2, [r3, #28]
- 333              		.loc 1 72 15 view .LVU110
- 334 0074 42F05272 		orr	r2, r2, #55050240
- 335 0078 42F00312 		orr	r2, r2, #196611
- 336 007c DA61     		str	r2, [r3, #28]
-ARM GAS  /tmp/ccpT1VcF.s 			page 8
+ 336              		.loc 1 72 5 is_stmt 1 view .LVU111
+ARM GAS  /tmp/ccsVbt6z.s 			page 8
 
 
+ 337              		.loc 1 72 9 is_stmt 0 view .LVU112
+ 338 007a DA69     		ldr	r2, [r3, #28]
+ 339              		.loc 1 72 15 view .LVU113
+ 340 007c 42F05272 		orr	r2, r2, #55050240
+ 341 0080 42F00312 		orr	r2, r2, #196611
+ 342 0084 DA61     		str	r2, [r3, #28]
   73:Core/Src/can_init.c ****     CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
- 337              		.loc 1 73 5 is_stmt 1 view .LVU111
- 338              		.loc 1 73 9 is_stmt 0 view .LVU112
- 339 007e 1A68     		ldr	r2, [r3]
- 340              		.loc 1 73 15 view .LVU113
- 341 0080 22F00102 		bic	r2, r2, #1
- 342 0084 1A60     		str	r2, [r3]
+ 343              		.loc 1 73 5 is_stmt 1 view .LVU114
+ 344              		.loc 1 73 9 is_stmt 0 view .LVU115
+ 345 0086 1A68     		ldr	r2, [r3]
+ 346              		.loc 1 73 15 view .LVU116
+ 347 0088 22F00102 		bic	r2, r2, #1
+ 348 008c 1A60     		str	r2, [r3]
   74:Core/Src/can_init.c **** 
   75:Core/Src/can_init.c **** }
- 343              		.loc 1 75 1 view .LVU114
- 344 0086 7047     		bx	lr
- 345              	.L15:
- 346              		.align	2
- 347              	.L14:
- 348 0088 00E100E0 		.word	-536813312
- 349 008c 00640040 		.word	1073767424
- 350 0090 00FE80FC 		.word	-58655232
- 351              		.cfi_endproc
- 352              	.LFE69:
- 354              		.section	.text.can_filtre_ayarlama_takay03,"ax",%progbits
- 355              		.align	1
- 356              		.global	can_filtre_ayarlama_takay03
- 357              		.syntax unified
- 358              		.thumb
- 359              		.thumb_func
- 361              	can_filtre_ayarlama_takay03:
- 362              	.LVL0:
- 363              	.LFB70:
+ 349              		.loc 1 75 1 view .LVU117
+ 350 008e 7047     		bx	lr
+ 351              	.L15:
+ 352              		.align	2
+ 353              	.L14:
+ 354 0090 00E100E0 		.word	-536813312
+ 355 0094 00640040 		.word	1073767424
+ 356 0098 00FE80FC 		.word	-58655232
+ 357              		.cfi_endproc
+ 358              	.LFE69:
+ 360              		.section	.text.can_filtre_ayarlama_takay03,"ax",%progbits
+ 361              		.align	1
+ 362              		.global	can_filtre_ayarlama_takay03
+ 363              		.syntax unified
+ 364              		.thumb
+ 365              		.thumb_func
+ 367              	can_filtre_ayarlama_takay03:
+ 368              	.LVL0:
+ 369              	.LFB70:
   76:Core/Src/can_init.c **** 
   77:Core/Src/can_init.c **** 
   78:Core/Src/can_init.c **** void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
- 364              		.loc 1 78 68 is_stmt 1 view -0
- 365              		.cfi_startproc
- 366              		@ args = 0, pretend = 0, frame = 0
- 367              		@ frame_needed = 0, uses_anonymous_args = 0
- 368              		@ link register save eliminated.
+ 370              		.loc 1 78 68 is_stmt 1 view -0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
   79:Core/Src/can_init.c ****     /*
   80:Core/Src/can_init.c ****     unsigned int CAN_MsgIdx = 0;
   81:Core/Src/can_init.c ****     static unsigned short CAN_FilterId = 0;
@@ -472,382 +478,386 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
   91:Core/Src/can_init.c ****     CAN_FilterId += 1;
   92:Core/Src/can_init.c ****     */
   93:Core/Src/can_init.c ****    static unsigned short CAN_filterIdx = 0;
- 369              		.loc 1 93 4 view .LVU116
+ARM GAS  /tmp/ccsVbt6z.s 			page 9
+
+
+ 375              		.loc 1 93 4 view .LVU119
   94:Core/Src/can_init.c ****          unsigned int   CAN_msgId     = 0;
- 370              		.loc 1 94 10 view .LVU117
+ 376              		.loc 1 94 10 view .LVU120
   95:Core/Src/can_init.c ****   
   96:Core/Src/can_init.c ****   if (CAN_filterIdx > 13) {                       // check if Filter Memory is full
- 371              		.loc 1 96 3 view .LVU118
-ARM GAS  /tmp/ccpT1VcF.s 			page 9
-
-
- 372              		.loc 1 96 21 is_stmt 0 view .LVU119
- 373 0000 1E4B     		ldr	r3, .L22
- 374 0002 1988     		ldrh	r1, [r3]
- 375              	.LVL1:
- 376              		.loc 1 96 6 view .LVU120
- 377 0004 0D29     		cmp	r1, #13
- 378 0006 37D8     		bhi	.L19
-  78:Core/Src/can_init.c ****     /*
- 379              		.loc 1 78 68 view .LVU121
- 380 0008 10B4     		push	{r4}
- 381              		.cfi_def_cfa_offset 4
- 382              		.cfi_offset 4, -4
+ 377              		.loc 1 96 3 view .LVU121
+ 378              		.loc 1 96 21 is_stmt 0 view .LVU122
+ 379 0000 204B     		ldr	r3, .L20
+ 380 0002 B3F800C0 		ldrh	ip, [r3]
+ 381              		.loc 1 96 6 view .LVU123
+ 382 0006 BCF10D0F 		cmp	ip, #13
+ 383 000a 37D8     		bhi	.L16
   97:Core/Src/can_init.c ****     return;
   98:Core/Src/can_init.c ****   }
   99:Core/Src/can_init.c ****                                                   // Setup identifier information
  100:Core/Src/can_init.c ****   if (format == STANDART_FORMAT)  {               // Standard ID
- 383              		.loc 1 100 3 is_stmt 1 view .LVU122
+ 384              		.loc 1 100 3 is_stmt 1 view .LVU124
+ 385              		.loc 1 100 6 is_stmt 0 view .LVU125
+ 386 000c B9BB     		cbnz	r1, .L18
  101:Core/Src/can_init.c ****       CAN_msgId  |= (unsigned int)(id << 21);
+ 387              		.loc 1 101 7 is_stmt 1 view .LVU126
+ 388              		.loc 1 101 21 is_stmt 0 view .LVU127
+ 389 000e 4005     		lsls	r0, r0, #21
+ 390              	.LVL1:
+ 391              	.L19:
  102:Core/Src/can_init.c ****   }  else  {                                      // Extended ID
  103:Core/Src/can_init.c ****       CAN_msgId  |= (unsigned int)(id <<  3);
- 384              		.loc 1 103 7 view .LVU123
- 385              	.LVL2:
  104:Core/Src/can_init.c ****   }
  105:Core/Src/can_init.c **** 
  106:Core/Src/can_init.c ****   CAN1->FMR  |=  CAN_FMR_FINIT;                    // set Initialisation mode for filter banks
- 386              		.loc 1 106 3 view .LVU124
- 387              		.loc 1 106 7 is_stmt 0 view .LVU125
- 388 000a 1D4B     		ldr	r3, .L22+4
- 389 000c D3F80022 		ldr	r2, [r3, #512]
- 390              		.loc 1 106 14 view .LVU126
- 391 0010 42F00102 		orr	r2, r2, #1
- 392 0014 C3F80022 		str	r2, [r3, #512]
+ 392              		.loc 1 106 3 is_stmt 1 view .LVU128
+ 393              		.loc 1 106 7 is_stmt 0 view .LVU129
+ 394 0010 1D4B     		ldr	r3, .L20+4
+ 395 0012 D3F80022 		ldr	r2, [r3, #512]
+ 396              		.loc 1 106 14 view .LVU130
+ 397 0016 42F00102 		orr	r2, r2, #1
+ 398 001a C3F80022 		str	r2, [r3, #512]
  107:Core/Src/can_init.c ****   CAN1->FA1R &=  ~(unsigned int)(1 << CAN_filterIdx); // deactivate filter
- 393              		.loc 1 107 3 is_stmt 1 view .LVU127
- 394              		.loc 1 107 7 is_stmt 0 view .LVU128
- 395 0018 D3F81C42 		ldr	r4, [r3, #540]
- 396              		.loc 1 107 36 view .LVU129
- 397 001c 0122     		movs	r2, #1
- 398 001e 8A40     		lsls	r2, r2, r1
- 399              		.loc 1 107 14 view .LVU130
- 400 0020 24EA0204 		bic	r4, r4, r2
- 401 0024 C3F81C42 		str	r4, [r3, #540]
+ 399              		.loc 1 107 3 is_stmt 1 view .LVU131
+ 400              		.loc 1 107 7 is_stmt 0 view .LVU132
+ 401 001e D3F81C12 		ldr	r1, [r3, #540]
+ 402              	.LVL2:
+ 403              		.loc 1 107 36 view .LVU133
+ 404 0022 0122     		movs	r2, #1
+ 405 0024 02FA0CF2 		lsl	r2, r2, ip
+ 406              		.loc 1 107 14 view .LVU134
+ 407 0028 21EA0201 		bic	r1, r1, r2
+ 408 002c C3F81C12 		str	r1, [r3, #540]
  108:Core/Src/can_init.c **** 
  109:Core/Src/can_init.c ****                                                   // initialize filter   
  110:Core/Src/can_init.c ****   CAN1->FS1R |= (unsigned int)(1 << CAN_filterIdx);// set 32-bit scale configuration
- 402              		.loc 1 110 3 is_stmt 1 view .LVU131
- 403              		.loc 1 110 7 is_stmt 0 view .LVU132
- 404 0028 D3F80C42 		ldr	r4, [r3, #524]
- 405              		.loc 1 110 14 view .LVU133
- 406 002c 1443     		orrs	r4, r4, r2
- 407 002e C3F80C42 		str	r4, [r3, #524]
+ 409              		.loc 1 110 3 is_stmt 1 view .LVU135
+ 410              		.loc 1 110 7 is_stmt 0 view .LVU136
+ 411 0030 D3F80C12 		ldr	r1, [r3, #524]
+ 412              		.loc 1 110 14 view .LVU137
+ 413 0034 1143     		orrs	r1, r1, r2
+ 414 0036 C3F80C12 		str	r1, [r3, #524]
+ARM GAS  /tmp/ccsVbt6z.s 			page 10
+
+
  111:Core/Src/can_init.c ****   CAN1->FM1R |= (unsigned int)(1 << CAN_filterIdx);// set 2 32-bit identifier list mode
- 408              		.loc 1 111 3 is_stmt 1 view .LVU134
- 409              		.loc 1 111 7 is_stmt 0 view .LVU135
- 410 0032 D3F80442 		ldr	r4, [r3, #516]
- 411              		.loc 1 111 14 view .LVU136
- 412 0036 1443     		orrs	r4, r4, r2
-ARM GAS  /tmp/ccpT1VcF.s 			page 10
-
-
- 413 0038 C3F80442 		str	r4, [r3, #516]
+ 415              		.loc 1 111 3 is_stmt 1 view .LVU138
+ 416              		.loc 1 111 7 is_stmt 0 view .LVU139
+ 417 003a D3F80412 		ldr	r1, [r3, #516]
+ 418              		.loc 1 111 14 view .LVU140
+ 419 003e 1143     		orrs	r1, r1, r2
+ 420 0040 C3F80412 		str	r1, [r3, #516]
  112:Core/Src/can_init.c **** 
- 113:Core/Src/can_init.c ****   CAN1->sFilterRegister[CAN_filterIdx].FR1 = id; //  32-bit identifier
- 414              		.loc 1 113 3 is_stmt 1 view .LVU137
- 415              		.loc 1 113 44 is_stmt 0 view .LVU138
- 416 003c 01F1480C 		add	ip, r1, #72
- 417 0040 43F83C00 		str	r0, [r3, ip, lsl #3]
- 114:Core/Src/can_init.c ****   CAN1->sFilterRegister[CAN_filterIdx].FR2 = id; //  32-bit identifier
- 418              		.loc 1 114 3 is_stmt 1 view .LVU139
- 419              		.loc 1 114 44 is_stmt 0 view .LVU140
- 420 0044 03EBCC0C 		add	ip, r3, ip, lsl #3
- 421 0048 CCF80400 		str	r0, [ip, #4]
+ 113:Core/Src/can_init.c ****   CAN1->sFilterRegister[CAN_filterIdx].FR1 =  CAN_msgId; //  32-bit identifier
+ 421              		.loc 1 113 3 is_stmt 1 view .LVU141
+ 422              		.loc 1 113 44 is_stmt 0 view .LVU142
+ 423 0044 0CF14801 		add	r1, ip, #72
+ 424 0048 43F83100 		str	r0, [r3, r1, lsl #3]
+ 114:Core/Src/can_init.c ****   CAN1->sFilterRegister[CAN_filterIdx].FR2 = CAN_msgId; //  32-bit identifier
+ 425              		.loc 1 114 3 is_stmt 1 view .LVU143
+ 426              		.loc 1 114 44 is_stmt 0 view .LVU144
+ 427 004c 03EBC101 		add	r1, r3, r1, lsl #3
+ 428 0050 4860     		str	r0, [r1, #4]
  115:Core/Src/can_init.c ****     													   
  116:Core/Src/can_init.c ****   CAN1->FFA1R &= ~(unsigned int)(1 << CAN_filterIdx);  // assign filter to FIFO 0
- 422              		.loc 1 116 3 is_stmt 1 view .LVU141
- 423              		.loc 1 116 7 is_stmt 0 view .LVU142
- 424 004c D3F81402 		ldr	r0, [r3, #532]
- 425              	.LVL3:
- 426              		.loc 1 116 15 view .LVU143
- 427 0050 20EA0200 		bic	r0, r0, r2
- 428 0054 C3F81402 		str	r0, [r3, #532]
- 429              	.LVL4:
+ 429              		.loc 1 116 3 is_stmt 1 view .LVU145
+ 430              		.loc 1 116 7 is_stmt 0 view .LVU146
+ 431 0052 D3F81412 		ldr	r1, [r3, #532]
+ 432              		.loc 1 116 15 view .LVU147
+ 433 0056 21EA0201 		bic	r1, r1, r2
+ 434 005a C3F81412 		str	r1, [r3, #532]
  117:Core/Src/can_init.c ****   CAN1->FA1R  |=  (unsigned int)(1 << CAN_filterIdx);  // activate filter
- 430              		.loc 1 117 3 is_stmt 1 view .LVU144
- 431              		.loc 1 117 7 is_stmt 0 view .LVU145
- 432 0058 D3F81C02 		ldr	r0, [r3, #540]
- 433              		.loc 1 117 15 view .LVU146
- 434 005c 0243     		orrs	r2, r2, r0
- 435 005e C3F81C22 		str	r2, [r3, #540]
+ 435              		.loc 1 117 3 is_stmt 1 view .LVU148
+ 436              		.loc 1 117 7 is_stmt 0 view .LVU149
+ 437 005e D3F81C12 		ldr	r1, [r3, #540]
+ 438              		.loc 1 117 15 view .LVU150
+ 439 0062 0A43     		orrs	r2, r2, r1
+ 440 0064 C3F81C22 		str	r2, [r3, #540]
  118:Core/Src/can_init.c **** 
  119:Core/Src/can_init.c ****   CAN1->FMR &= ~CAN_FMR_FINIT;                     // reset Initialisation mode for filter banks
- 436              		.loc 1 119 3 is_stmt 1 view .LVU147
- 437              		.loc 1 119 7 is_stmt 0 view .LVU148
- 438 0062 D3F80022 		ldr	r2, [r3, #512]
- 439              		.loc 1 119 13 view .LVU149
- 440 0066 22F00102 		bic	r2, r2, #1
- 441 006a C3F80022 		str	r2, [r3, #512]
+ 441              		.loc 1 119 3 is_stmt 1 view .LVU151
+ 442              		.loc 1 119 7 is_stmt 0 view .LVU152
+ 443 0068 D3F80022 		ldr	r2, [r3, #512]
+ 444              		.loc 1 119 13 view .LVU153
+ 445 006c 22F00102 		bic	r2, r2, #1
+ 446 0070 C3F80022 		str	r2, [r3, #512]
  120:Core/Src/can_init.c **** 
  121:Core/Src/can_init.c ****   CAN_filterIdx += 1;                             // increase filter index
- 442              		.loc 1 121 3 is_stmt 1 view .LVU150
- 443              		.loc 1 121 17 is_stmt 0 view .LVU151
- 444 006e 4B1C     		adds	r3, r1, #1
- 445 0070 024A     		ldr	r2, .L22
- 446 0072 1380     		strh	r3, [r2]	@ movhi
+ 447              		.loc 1 121 3 is_stmt 1 view .LVU154
+ 448              		.loc 1 121 17 is_stmt 0 view .LVU155
+ 449 0074 0CF10103 		add	r3, ip, #1
+ 450 0078 024A     		ldr	r2, .L20
+ 451 007a 1380     		strh	r3, [r2]	@ movhi
+ 452              	.LVL3:
+ 453              	.L16:
  122:Core/Src/can_init.c **** 
  123:Core/Src/can_init.c **** }
- 447              		.loc 1 123 1 view .LVU152
- 448 0074 10BC     		pop	{r4}
- 449              		.cfi_restore 4
- 450              		.cfi_def_cfa_offset 0
- 451 0076 7047     		bx	lr
- 452              	.LVL5:
- 453              	.L19:
- 454              		.loc 1 123 1 view .LVU153
- 455 0078 7047     		bx	lr
- 456              	.L23:
- 457 007a 00BF     		.align	2
-ARM GAS  /tmp/ccpT1VcF.s 			page 11
+ 454              		.loc 1 123 1 view .LVU156
+ 455 007c 7047     		bx	lr
+ 456              	.LVL4:
+ 457              	.L18:
+ 103:Core/Src/can_init.c ****   }
+ARM GAS  /tmp/ccsVbt6z.s 			page 11
 
 
- 458              	.L22:
- 459 007c 00000000 		.word	CAN_filterIdx.0
- 460 0080 00640040 		.word	1073767424
- 461              		.cfi_endproc
- 462              	.LFE70:
- 464              		.section	.text.readMessage,"ax",%progbits
- 465              		.align	1
- 466              		.global	readMessage
- 467              		.syntax unified
- 468              		.thumb
- 469              		.thumb_func
- 471              	readMessage:
- 472              	.LFB71:
+ 458              		.loc 1 103 7 is_stmt 1 view .LVU157
+ 103:Core/Src/can_init.c ****   }
+ 459              		.loc 1 103 21 is_stmt 0 view .LVU158
+ 460 007e C000     		lsls	r0, r0, #3
+ 461              	.LVL5:
+ 103:Core/Src/can_init.c ****   }
+ 462              		.loc 1 103 21 view .LVU159
+ 463 0080 C6E7     		b	.L19
+ 464              	.L21:
+ 465 0082 00BF     		.align	2
+ 466              	.L20:
+ 467 0084 00000000 		.word	CAN_filterIdx.0
+ 468 0088 00640040 		.word	1073767424
+ 469              		.cfi_endproc
+ 470              	.LFE70:
+ 472              		.section	.text.readMessage,"ax",%progbits
+ 473              		.align	1
+ 474              		.global	readMessage
+ 475              		.syntax unified
+ 476              		.thumb
+ 477              		.thumb_func
+ 479              	readMessage:
+ 480              	.LFB71:
  124:Core/Src/can_init.c **** 
  125:Core/Src/can_init.c **** void readMessage(void){
- 473              		.loc 1 125 23 is_stmt 1 view -0
- 474              		.cfi_startproc
- 475              		@ args = 0, pretend = 0, frame = 0
- 476              		@ frame_needed = 0, uses_anonymous_args = 0
- 477 0000 08B5     		push	{r3, lr}
- 478              		.cfi_def_cfa_offset 8
- 479              		.cfi_offset 3, -8
- 480              		.cfi_offset 14, -4
+ 481              		.loc 1 125 23 is_stmt 1 view -0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485 0000 08B5     		push	{r3, lr}
+ 486              		.cfi_def_cfa_offset 8
+ 487              		.cfi_offset 3, -8
+ 488              		.cfi_offset 14, -4
  126:Core/Src/can_init.c ****                                                     // Read identifier information
  127:Core/Src/can_init.c ****   if ((CAN1->sFIFOMailBox[0].RIR & (1<<2)) == 0) { // Standard ID
- 481              		.loc 1 127 3 view .LVU155
- 482              		.loc 1 127 29 is_stmt 0 view .LVU156
- 483 0002 2A4B     		ldr	r3, .L32
- 484 0004 D3F8B031 		ldr	r3, [r3, #432]
- 485              		.loc 1 127 6 view .LVU157
- 486 0008 13F0040F 		tst	r3, #4
- 487 000c 3DD1     		bne	.L25
+ 489              		.loc 1 127 3 view .LVU161
+ 490              		.loc 1 127 29 is_stmt 0 view .LVU162
+ 491 0002 2A4B     		ldr	r3, .L30
+ 492 0004 D3F8B031 		ldr	r3, [r3, #432]
+ 493              		.loc 1 127 6 view .LVU163
+ 494 0008 13F0040F 		tst	r3, #4
+ 495 000c 3DD1     		bne	.L23
  128:Core/Src/can_init.c ****     CAN_RxMsg.format = STANDART_FORMAT;
- 488              		.loc 1 128 5 is_stmt 1 view .LVU158
- 489              		.loc 1 128 22 is_stmt 0 view .LVU159
- 490 000e 284A     		ldr	r2, .L32+4
- 491 0010 0023     		movs	r3, #0
- 492 0012 5373     		strb	r3, [r2, #13]
+ 496              		.loc 1 128 5 is_stmt 1 view .LVU164
+ 497              		.loc 1 128 22 is_stmt 0 view .LVU165
+ 498 000e 284A     		ldr	r2, .L30+4
+ 499 0010 0023     		movs	r3, #0
+ 500 0012 5373     		strb	r3, [r2, #13]
  129:Core/Src/can_init.c ****     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 21);
- 493              		.loc 1 129 5 is_stmt 1 view .LVU160
- 494              		.loc 1 129 46 is_stmt 0 view .LVU161
- 495 0014 254B     		ldr	r3, .L32
- 496 0016 D3F8B031 		ldr	r3, [r3, #432]
- 497              		.loc 1 129 51 view .LVU162
- 498 001a 5B0D     		lsrs	r3, r3, #21
- 499              		.loc 1 129 22 view .LVU163
- 500 001c 1360     		str	r3, [r2]
- 501              	.L26:
+ 501              		.loc 1 129 5 is_stmt 1 view .LVU166
+ 502              		.loc 1 129 46 is_stmt 0 view .LVU167
+ 503 0014 254B     		ldr	r3, .L30
+ 504 0016 D3F8B031 		ldr	r3, [r3, #432]
+ 505              		.loc 1 129 51 view .LVU168
+ 506 001a 5B0D     		lsrs	r3, r3, #21
+ 507              		.loc 1 129 22 view .LVU169
+ 508 001c 1360     		str	r3, [r2]
+ARM GAS  /tmp/ccsVbt6z.s 			page 12
+
+
+ 509              	.L24:
  130:Core/Src/can_init.c ****   }  else  {                                          // Extended ID
  131:Core/Src/can_init.c ****     CAN_RxMsg.format = EXTENDED_FORMAT;
  132:Core/Src/can_init.c ****     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 3);
  133:Core/Src/can_init.c ****   }
  134:Core/Src/can_init.c ****                                                   // Read type information
  135:Core/Src/can_init.c ****   if ((CAN1->sFIFOMailBox[0].RIR & (1<<1)) == 0) {
- 502              		.loc 1 135 3 is_stmt 1 view .LVU164
- 503              		.loc 1 135 29 is_stmt 0 view .LVU165
- 504 001e 234B     		ldr	r3, .L32
-ARM GAS  /tmp/ccpT1VcF.s 			page 12
-
-
- 505 0020 D3F8B031 		ldr	r3, [r3, #432]
- 506              		.loc 1 135 6 view .LVU166
- 507 0024 13F0020F 		tst	r3, #2
- 508 0028 38D1     		bne	.L27
+ 510              		.loc 1 135 3 is_stmt 1 view .LVU170
+ 511              		.loc 1 135 29 is_stmt 0 view .LVU171
+ 512 001e 234B     		ldr	r3, .L30
+ 513 0020 D3F8B031 		ldr	r3, [r3, #432]
+ 514              		.loc 1 135 6 view .LVU172
+ 515 0024 13F0020F 		tst	r3, #2
+ 516 0028 38D1     		bne	.L25
  136:Core/Src/can_init.c ****     CAN_RxMsg.type =   DATA_FRAME;                     // DATA   FRAME
- 509              		.loc 1 136 5 is_stmt 1 view .LVU167
- 510              		.loc 1 136 20 is_stmt 0 view .LVU168
- 511 002a 214B     		ldr	r3, .L32+4
- 512 002c 0022     		movs	r2, #0
- 513 002e 9A73     		strb	r2, [r3, #14]
- 514              	.L28:
+ 517              		.loc 1 136 5 is_stmt 1 view .LVU173
+ 518              		.loc 1 136 20 is_stmt 0 view .LVU174
+ 519 002a 214B     		ldr	r3, .L30+4
+ 520 002c 0022     		movs	r2, #0
+ 521 002e 9A73     		strb	r2, [r3, #14]
+ 522              	.L26:
  137:Core/Src/can_init.c ****   }  else  {
  138:Core/Src/can_init.c ****     CAN_RxMsg.type = REMOTE_FRAME;                     // REMOTE FRAME
  139:Core/Src/can_init.c ****   }
  140:Core/Src/can_init.c ****                                                   // Read length (number of received bytes)
  141:Core/Src/can_init.c ****   CAN_RxMsg.len = (unsigned char)0x0000000F & CAN1->sFIFOMailBox[0].RDTR;
- 515              		.loc 1 141 3 is_stmt 1 view .LVU169
- 516              		.loc 1 141 68 is_stmt 0 view .LVU170
- 517 0030 1E4B     		ldr	r3, .L32
- 518 0032 D3F8B411 		ldr	r1, [r3, #436]
- 519              		.loc 1 141 45 view .LVU171
- 520 0036 01F00F01 		and	r1, r1, #15
- 521              		.loc 1 141 17 view .LVU172
- 522 003a 1D4A     		ldr	r2, .L32+4
- 523 003c 1173     		strb	r1, [r2, #12]
+ 523              		.loc 1 141 3 is_stmt 1 view .LVU175
+ 524              		.loc 1 141 68 is_stmt 0 view .LVU176
+ 525 0030 1E4B     		ldr	r3, .L30
+ 526 0032 D3F8B411 		ldr	r1, [r3, #436]
+ 527              		.loc 1 141 45 view .LVU177
+ 528 0036 01F00F01 		and	r1, r1, #15
+ 529              		.loc 1 141 17 view .LVU178
+ 530 003a 1D4A     		ldr	r2, .L30+4
+ 531 003c 1173     		strb	r1, [r2, #12]
  142:Core/Src/can_init.c ****                                                   // Read data bytes
  143:Core/Src/can_init.c ****   CAN_RxMsg.data[0] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR);
- 524              		.loc 1 143 3 is_stmt 1 view .LVU173
- 525              		.loc 1 143 72 is_stmt 0 view .LVU174
- 526 003e D3F8B811 		ldr	r1, [r3, #440]
- 527              		.loc 1 143 21 view .LVU175
- 528 0042 1171     		strb	r1, [r2, #4]
+ 532              		.loc 1 143 3 is_stmt 1 view .LVU179
+ 533              		.loc 1 143 72 is_stmt 0 view .LVU180
+ 534 003e D3F8B811 		ldr	r1, [r3, #440]
+ 535              		.loc 1 143 21 view .LVU181
+ 536 0042 1171     		strb	r1, [r2, #4]
  144:Core/Src/can_init.c ****   CAN_RxMsg.data[1] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 8);
- 529              		.loc 1 144 3 is_stmt 1 view .LVU176
- 530              		.loc 1 144 72 is_stmt 0 view .LVU177
- 531 0044 D3F8B811 		ldr	r1, [r3, #440]
- 532              		.loc 1 144 78 view .LVU178
- 533 0048 090A     		lsrs	r1, r1, #8
- 534              		.loc 1 144 21 view .LVU179
- 535 004a 5171     		strb	r1, [r2, #5]
+ 537              		.loc 1 144 3 is_stmt 1 view .LVU182
+ 538              		.loc 1 144 72 is_stmt 0 view .LVU183
+ 539 0044 D3F8B811 		ldr	r1, [r3, #440]
+ 540              		.loc 1 144 78 view .LVU184
+ 541 0048 090A     		lsrs	r1, r1, #8
+ 542              		.loc 1 144 21 view .LVU185
+ 543 004a 5171     		strb	r1, [r2, #5]
  145:Core/Src/can_init.c ****   CAN_RxMsg.data[2] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 16);
- 536              		.loc 1 145 3 is_stmt 1 view .LVU180
- 537              		.loc 1 145 72 is_stmt 0 view .LVU181
- 538 004c D3F8B811 		ldr	r1, [r3, #440]
- 539              		.loc 1 145 78 view .LVU182
- 540 0050 090C     		lsrs	r1, r1, #16
- 541              		.loc 1 145 21 view .LVU183
- 542 0052 9171     		strb	r1, [r2, #6]
+ 544              		.loc 1 145 3 is_stmt 1 view .LVU186
+ 545              		.loc 1 145 72 is_stmt 0 view .LVU187
+ 546 004c D3F8B811 		ldr	r1, [r3, #440]
+ 547              		.loc 1 145 78 view .LVU188
+ 548 0050 090C     		lsrs	r1, r1, #16
+ 549              		.loc 1 145 21 view .LVU189
+ARM GAS  /tmp/ccsVbt6z.s 			page 13
+
+
+ 550 0052 9171     		strb	r1, [r2, #6]
  146:Core/Src/can_init.c ****   CAN_RxMsg.data[3] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDLR >> 24);
- 543              		.loc 1 146 3 is_stmt 1 view .LVU184
- 544              		.loc 1 146 72 is_stmt 0 view .LVU185
- 545 0054 D3F8B811 		ldr	r1, [r3, #440]
- 546              		.loc 1 146 78 view .LVU186
- 547 0058 090E     		lsrs	r1, r1, #24
- 548              		.loc 1 146 21 view .LVU187
- 549 005a D171     		strb	r1, [r2, #7]
+ 551              		.loc 1 146 3 is_stmt 1 view .LVU190
+ 552              		.loc 1 146 72 is_stmt 0 view .LVU191
+ 553 0054 D3F8B811 		ldr	r1, [r3, #440]
+ 554              		.loc 1 146 78 view .LVU192
+ 555 0058 090E     		lsrs	r1, r1, #24
+ 556              		.loc 1 146 21 view .LVU193
+ 557 005a D171     		strb	r1, [r2, #7]
  147:Core/Src/can_init.c **** 
-ARM GAS  /tmp/ccpT1VcF.s 			page 13
-
-
  148:Core/Src/can_init.c ****   CAN_RxMsg.data[4] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR);
- 550              		.loc 1 148 3 is_stmt 1 view .LVU188
- 551              		.loc 1 148 72 is_stmt 0 view .LVU189
- 552 005c D3F8BC11 		ldr	r1, [r3, #444]
- 553              		.loc 1 148 21 view .LVU190
- 554 0060 1172     		strb	r1, [r2, #8]
+ 558              		.loc 1 148 3 is_stmt 1 view .LVU194
+ 559              		.loc 1 148 72 is_stmt 0 view .LVU195
+ 560 005c D3F8BC11 		ldr	r1, [r3, #444]
+ 561              		.loc 1 148 21 view .LVU196
+ 562 0060 1172     		strb	r1, [r2, #8]
  149:Core/Src/can_init.c ****   CAN_RxMsg.data[5] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 8);
- 555              		.loc 1 149 3 is_stmt 1 view .LVU191
- 556              		.loc 1 149 72 is_stmt 0 view .LVU192
- 557 0062 D3F8BC11 		ldr	r1, [r3, #444]
- 558              		.loc 1 149 78 view .LVU193
- 559 0066 090A     		lsrs	r1, r1, #8
- 560              		.loc 1 149 21 view .LVU194
- 561 0068 5172     		strb	r1, [r2, #9]
+ 563              		.loc 1 149 3 is_stmt 1 view .LVU197
+ 564              		.loc 1 149 72 is_stmt 0 view .LVU198
+ 565 0062 D3F8BC11 		ldr	r1, [r3, #444]
+ 566              		.loc 1 149 78 view .LVU199
+ 567 0066 090A     		lsrs	r1, r1, #8
+ 568              		.loc 1 149 21 view .LVU200
+ 569 0068 5172     		strb	r1, [r2, #9]
  150:Core/Src/can_init.c ****   CAN_RxMsg.data[6] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 16);
- 562              		.loc 1 150 3 is_stmt 1 view .LVU195
- 563              		.loc 1 150 72 is_stmt 0 view .LVU196
- 564 006a D3F8BC11 		ldr	r1, [r3, #444]
- 565              		.loc 1 150 78 view .LVU197
- 566 006e 090C     		lsrs	r1, r1, #16
- 567              		.loc 1 150 21 view .LVU198
- 568 0070 9172     		strb	r1, [r2, #10]
+ 570              		.loc 1 150 3 is_stmt 1 view .LVU201
+ 571              		.loc 1 150 72 is_stmt 0 view .LVU202
+ 572 006a D3F8BC11 		ldr	r1, [r3, #444]
+ 573              		.loc 1 150 78 view .LVU203
+ 574 006e 090C     		lsrs	r1, r1, #16
+ 575              		.loc 1 150 21 view .LVU204
+ 576 0070 9172     		strb	r1, [r2, #10]
  151:Core/Src/can_init.c ****   CAN_RxMsg.data[7] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 24);
- 569              		.loc 1 151 3 is_stmt 1 view .LVU199
- 570              		.loc 1 151 72 is_stmt 0 view .LVU200
- 571 0072 D3F8BC11 		ldr	r1, [r3, #444]
- 572              		.loc 1 151 78 view .LVU201
- 573 0076 090E     		lsrs	r1, r1, #24
- 574              		.loc 1 151 21 view .LVU202
- 575 0078 D172     		strb	r1, [r2, #11]
+ 577              		.loc 1 151 3 is_stmt 1 view .LVU205
+ 578              		.loc 1 151 72 is_stmt 0 view .LVU206
+ 579 0072 D3F8BC11 		ldr	r1, [r3, #444]
+ 580              		.loc 1 151 78 view .LVU207
+ 581 0076 090E     		lsrs	r1, r1, #24
+ 582              		.loc 1 151 21 view .LVU208
+ 583 0078 D172     		strb	r1, [r2, #11]
  152:Core/Src/can_init.c **** 
  153:Core/Src/can_init.c ****   CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
- 576              		.loc 1 153 3 is_stmt 1 view .LVU203
- 577              		.loc 1 153 7 is_stmt 0 view .LVU204
- 578 007a D968     		ldr	r1, [r3, #12]
- 579              		.loc 1 153 14 view .LVU205
- 580 007c 41F02001 		orr	r1, r1, #32
- 581 0080 D960     		str	r1, [r3, #12]
+ 584              		.loc 1 153 3 is_stmt 1 view .LVU209
+ 585              		.loc 1 153 7 is_stmt 0 view .LVU210
+ 586 007a D968     		ldr	r1, [r3, #12]
+ 587              		.loc 1 153 14 view .LVU211
+ 588 007c 41F02001 		orr	r1, r1, #32
+ 589 0080 D960     		str	r1, [r3, #12]
  154:Core/Src/can_init.c **** 
  155:Core/Src/can_init.c ****     if(CAN_RxMsg.id == 0x0FF){
- 582              		.loc 1 155 5 is_stmt 1 view .LVU206
- 583              		.loc 1 155 17 is_stmt 0 view .LVU207
- 584 0082 1368     		ldr	r3, [r2]
- 585              		.loc 1 155 7 view .LVU208
- 586 0084 FF2B     		cmp	r3, #255
- 587 0086 0DD0     		beq	.L31
- 588              	.L24:
+ 590              		.loc 1 155 5 is_stmt 1 view .LVU212
+ 591              		.loc 1 155 17 is_stmt 0 view .LVU213
+ 592 0082 1368     		ldr	r3, [r2]
+ 593              		.loc 1 155 7 view .LVU214
+ 594 0084 FF2B     		cmp	r3, #255
+ 595 0086 0DD0     		beq	.L29
+ 596              	.L22:
+ARM GAS  /tmp/ccsVbt6z.s 			page 14
+
+
  156:Core/Src/can_init.c ****         led_on();
  157:Core/Src/can_init.c ****     }
  158:Core/Src/can_init.c **** 
  159:Core/Src/can_init.c **** }
- 589              		.loc 1 159 1 view .LVU209
- 590 0088 08BD     		pop	{r3, pc}
- 591              	.L25:
+ 597              		.loc 1 159 1 view .LVU215
+ 598 0088 08BD     		pop	{r3, pc}
+ 599              	.L23:
  131:Core/Src/can_init.c ****     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 3);
- 592              		.loc 1 131 5 is_stmt 1 view .LVU210
+ 600              		.loc 1 131 5 is_stmt 1 view .LVU216
  131:Core/Src/can_init.c ****     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 3);
-ARM GAS  /tmp/ccpT1VcF.s 			page 14
-
-
- 593              		.loc 1 131 22 is_stmt 0 view .LVU211
- 594 008a 094A     		ldr	r2, .L32+4
- 595 008c 0123     		movs	r3, #1
- 596 008e 5373     		strb	r3, [r2, #13]
+ 601              		.loc 1 131 22 is_stmt 0 view .LVU217
+ 602 008a 094A     		ldr	r2, .L30+4
+ 603 008c 0123     		movs	r3, #1
+ 604 008e 5373     		strb	r3, [r2, #13]
  132:Core/Src/can_init.c ****   }
- 597              		.loc 1 132 5 is_stmt 1 view .LVU212
+ 605              		.loc 1 132 5 is_stmt 1 view .LVU218
  132:Core/Src/can_init.c ****   }
- 598              		.loc 1 132 46 is_stmt 0 view .LVU213
- 599 0090 064B     		ldr	r3, .L32
- 600 0092 D3F8B031 		ldr	r3, [r3, #432]
+ 606              		.loc 1 132 46 is_stmt 0 view .LVU219
+ 607 0090 064B     		ldr	r3, .L30
+ 608 0092 D3F8B031 		ldr	r3, [r3, #432]
  132:Core/Src/can_init.c ****   }
- 601              		.loc 1 132 51 view .LVU214
- 602 0096 DB08     		lsrs	r3, r3, #3
+ 609              		.loc 1 132 51 view .LVU220
+ 610 0096 DB08     		lsrs	r3, r3, #3
  132:Core/Src/can_init.c ****   }
- 603              		.loc 1 132 22 view .LVU215
- 604 0098 1360     		str	r3, [r2]
- 605 009a C0E7     		b	.L26
- 606              	.L27:
+ 611              		.loc 1 132 22 view .LVU221
+ 612 0098 1360     		str	r3, [r2]
+ 613 009a C0E7     		b	.L24
+ 614              	.L25:
  138:Core/Src/can_init.c ****   }
- 607              		.loc 1 138 5 is_stmt 1 view .LVU216
+ 615              		.loc 1 138 5 is_stmt 1 view .LVU222
  138:Core/Src/can_init.c ****   }
- 608              		.loc 1 138 20 is_stmt 0 view .LVU217
- 609 009c 044B     		ldr	r3, .L32+4
- 610 009e 0122     		movs	r2, #1
- 611 00a0 9A73     		strb	r2, [r3, #14]
- 612 00a2 C5E7     		b	.L28
- 613              	.L31:
+ 616              		.loc 1 138 20 is_stmt 0 view .LVU223
+ 617 009c 044B     		ldr	r3, .L30+4
+ 618 009e 0122     		movs	r2, #1
+ 619 00a0 9A73     		strb	r2, [r3, #14]
+ 620 00a2 C5E7     		b	.L26
+ 621              	.L29:
  156:Core/Src/can_init.c ****     }
- 614              		.loc 1 156 9 is_stmt 1 view .LVU218
- 615 00a4 FFF7FEFF 		bl	led_on
- 616              	.LVL6:
- 617              		.loc 1 159 1 is_stmt 0 view .LVU219
- 618 00a8 EEE7     		b	.L24
- 619              	.L33:
- 620 00aa 00BF     		.align	2
- 621              	.L32:
- 622 00ac 00640040 		.word	1073767424
- 623 00b0 00000000 		.word	CAN_RxMsg
- 624              		.cfi_endproc
- 625              	.LFE71:
- 627              		.section	.text.Set_TxMailBox,"ax",%progbits
- 628              		.align	1
- 629              		.global	Set_TxMailBox
- 630              		.syntax unified
- 631              		.thumb
- 632              		.thumb_func
- 634              	Set_TxMailBox:
- 635              	.LVL7:
- 636              	.LFB72:
+ 622              		.loc 1 156 9 is_stmt 1 view .LVU224
+ 623 00a4 FFF7FEFF 		bl	led_on
+ 624              	.LVL6:
+ 625              		.loc 1 159 1 is_stmt 0 view .LVU225
+ 626 00a8 EEE7     		b	.L22
+ 627              	.L31:
+ 628 00aa 00BF     		.align	2
+ 629              	.L30:
+ 630 00ac 00640040 		.word	1073767424
+ 631 00b0 00000000 		.word	CAN_RxMsg
+ 632              		.cfi_endproc
+ 633              	.LFE71:
+ 635              		.section	.text.Set_TxMailBox,"ax",%progbits
+ 636              		.align	1
+ 637              		.global	Set_TxMailBox
+ 638              		.syntax unified
+ 639              		.thumb
+ 640              		.thumb_func
+ 642              	Set_TxMailBox:
+ARM GAS  /tmp/ccsVbt6z.s 			page 15
+
+
+ 643              	.LVL7:
+ 644              	.LFB72:
  160:Core/Src/can_init.c **** 
  161:Core/Src/can_init.c **** 
  162:Core/Src/can_init.c **** void Set_TxMailBox(uint32_t TxMailBox, CAN_Msg msg){
- 637              		.loc 1 162 52 is_stmt 1 view -0
- 638              		.cfi_startproc
- 639              		@ args = 20, pretend = 16, frame = 0
- 640              		@ frame_needed = 0, uses_anonymous_args = 0
- 641              		.loc 1 162 52 is_stmt 0 view .LVU221
-ARM GAS  /tmp/ccpT1VcF.s 			page 15
-
-
- 642 0000 84B0     		sub	sp, sp, #16
- 643              		.cfi_def_cfa_offset 16
- 644 0002 00B5     		push	{lr}
- 645              		.cfi_def_cfa_offset 20
- 646              		.cfi_offset 14, -20
- 647 0004 0DF1080C 		add	ip, sp, #8
- 648 0008 8CE80E00 		stm	ip, {r1, r2, r3}
+ 645              		.loc 1 162 52 is_stmt 1 view -0
+ 646              		.cfi_startproc
+ 647              		@ args = 20, pretend = 16, frame = 0
+ 648              		@ frame_needed = 0, uses_anonymous_args = 0
+ 649              		.loc 1 162 52 is_stmt 0 view .LVU227
+ 650 0000 84B0     		sub	sp, sp, #16
+ 651              		.cfi_def_cfa_offset 16
+ 652 0002 00B5     		push	{lr}
+ 653              		.cfi_def_cfa_offset 20
+ 654              		.cfi_offset 14, -20
+ 655 0004 0DF1080C 		add	ip, sp, #8
+ 656 0008 8CE80E00 		stm	ip, {r1, r2, r3}
  163:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX
  164:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR |= (1<<2); //extended identifier
  165:Core/Src/can_init.c ****     /*
@@ -857,235 +867,235 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  169:Core/Src/can_init.c ****     */
  170:Core/Src/can_init.c ****         
  171:Core/Src/can_init.c ****     if (TxMailBox > 2)
- 649              		.loc 1 171 5 is_stmt 1 view .LVU222
- 650              		.loc 1 171 8 is_stmt 0 view .LVU223
- 651 000c 0228     		cmp	r0, #2
- 652 000e 51D8     		bhi	.L34
+ 657              		.loc 1 171 5 is_stmt 1 view .LVU228
+ 658              		.loc 1 171 8 is_stmt 0 view .LVU229
+ 659 000c 0228     		cmp	r0, #2
+ 660 000e 51D8     		bhi	.L32
  172:Core/Src/can_init.c ****       return;
  173:Core/Src/can_init.c ****     
- 174:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TDLR = (((unsigned int)msg.data[3]<< 24) | 
- 653              		.loc 1 174 5 is_stmt 1 view .LVU224
- 654              		.loc 1 174 64 is_stmt 0 view .LVU225
- 655 0010 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2
- 175:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2] << 16) |
- 656              		.loc 1 175 64 view .LVU226
- 657 0014 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2
- 658              		.loc 1 175 68 view .LVU227
- 659 0018 1B04     		lsls	r3, r3, #16
- 174:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2] << 16) |
- 660              		.loc 1 174 74 view .LVU228
- 661 001a 43EA0263 		orr	r3, r3, r2, lsl #24
- 176:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[1] <<  8) | 
- 662              		.loc 1 176 64 view .LVU229
- 663 001e 9DF80D20 		ldrb	r2, [sp, #13]	@ zero_extendqisi2
- 175:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2] << 16) |
- 664              		.loc 1 175 75 view .LVU230
- 665 0022 43EA0223 		orr	r3, r3, r2, lsl #8
+ 174:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TDLR = (((unsigned int)msg.data[3]<<24) | 
+ 661              		.loc 1 174 5 is_stmt 1 view .LVU230
+ 662              		.loc 1 174 64 is_stmt 0 view .LVU231
+ 663 0010 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2
+ 175:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2]<<16) |
+ 664              		.loc 1 175 64 view .LVU232
+ 665 0014 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2
+ 666              		.loc 1 175 67 view .LVU233
+ 667 0018 1B04     		lsls	r3, r3, #16
+ 174:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2]<<16) |
+ 668              		.loc 1 174 73 view .LVU234
+ 669 001a 43EA0263 		orr	r3, r3, r2, lsl #24
+ 176:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[1]<<8)  | 
+ 670              		.loc 1 176 64 view .LVU235
+ 671 001e 9DF80D20 		ldrb	r2, [sp, #13]	@ zero_extendqisi2
+ 175:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2]<<16) |
+ 672              		.loc 1 175 73 view .LVU236
+ 673 0022 43EA0223 		orr	r3, r3, r2, lsl #8
  177:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[0]));
- 666              		.loc 1 177 64 view .LVU231
- 667 0026 9DF80C20 		ldrb	r2, [sp, #12]	@ zero_extendqisi2
- 176:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[1] <<  8) | 
- 668              		.loc 1 176 75 view .LVU232
- 669 002a 1343     		orrs	r3, r3, r2
- 174:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2] << 16) |
- 670              		.loc 1 174 38 view .LVU233
- 671 002c 2E4A     		ldr	r2, .L41
- 672 002e 02EB0011 		add	r1, r2, r0, lsl #4
- 673 0032 C1F88831 		str	r3, [r1, #392]
+ 674              		.loc 1 177 64 view .LVU237
+ 675 0026 9DF80C20 		ldrb	r2, [sp, #12]	@ zero_extendqisi2
+ 176:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[1]<<8)  | 
+ 676              		.loc 1 176 73 view .LVU238
+ 677 002a 1343     		orrs	r3, r3, r2
+ 174:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[2]<<16) |
+ARM GAS  /tmp/ccsVbt6z.s 			page 16
+
+
+ 678              		.loc 1 174 38 view .LVU239
+ 679 002c 2E4A     		ldr	r2, .L39
+ 680 002e 02EB0011 		add	r1, r2, r0, lsl #4
+ 681 0032 C1F88831 		str	r3, [r1, #392]
  178:Core/Src/can_init.c **** 
- 179:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TDHR = (((unsigned int)msg.data[7] << 24) | 
- 674              		.loc 1 179 5 is_stmt 1 view .LVU234
- 675              		.loc 1 179 64 is_stmt 0 view .LVU235
- 676 0036 9DF813C0 		ldrb	ip, [sp, #19]	@ zero_extendqisi2
- 180:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6] << 16) |
-ARM GAS  /tmp/ccpT1VcF.s 			page 16
-
-
- 677              		.loc 1 180 64 view .LVU236
- 678 003a 9DF81230 		ldrb	r3, [sp, #18]	@ zero_extendqisi2
- 679              		.loc 1 180 68 view .LVU237
- 680 003e 1B04     		lsls	r3, r3, #16
- 179:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6] << 16) |
- 681              		.loc 1 179 75 view .LVU238
- 682 0040 43EA0C63 		orr	r3, r3, ip, lsl #24
- 181:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[5] <<  8) |
- 683              		.loc 1 181 64 view .LVU239
- 684 0044 9DF811C0 		ldrb	ip, [sp, #17]	@ zero_extendqisi2
- 180:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6] << 16) |
- 685              		.loc 1 180 75 view .LVU240
- 686 0048 43EA0C23 		orr	r3, r3, ip, lsl #8
+ 179:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TDHR = (((unsigned int)msg.data[7]<<24) | 
+ 682              		.loc 1 179 5 is_stmt 1 view .LVU240
+ 683              		.loc 1 179 64 is_stmt 0 view .LVU241
+ 684 0036 9DF813C0 		ldrb	ip, [sp, #19]	@ zero_extendqisi2
+ 180:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6]<<16) |
+ 685              		.loc 1 180 64 view .LVU242
+ 686 003a 9DF81230 		ldrb	r3, [sp, #18]	@ zero_extendqisi2
+ 687              		.loc 1 180 67 view .LVU243
+ 688 003e 1B04     		lsls	r3, r3, #16
+ 179:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6]<<16) |
+ 689              		.loc 1 179 73 view .LVU244
+ 690 0040 43EA0C63 		orr	r3, r3, ip, lsl #24
+ 181:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[5]<<8)  |
+ 691              		.loc 1 181 64 view .LVU245
+ 692 0044 9DF811C0 		ldrb	ip, [sp, #17]	@ zero_extendqisi2
+ 180:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6]<<16) |
+ 693              		.loc 1 180 73 view .LVU246
+ 694 0048 43EA0C23 		orr	r3, r3, ip, lsl #8
  182:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[4]));
- 687              		.loc 1 182 64 view .LVU241
- 688 004c 9DF810C0 		ldrb	ip, [sp, #16]	@ zero_extendqisi2
- 181:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[5] <<  8) |
- 689              		.loc 1 181 75 view .LVU242
- 690 0050 43EA0C03 		orr	r3, r3, ip
- 179:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6] << 16) |
- 691              		.loc 1 179 38 view .LVU243
- 692 0054 C1F88C31 		str	r3, [r1, #396]
+ 695              		.loc 1 182 64 view .LVU247
+ 696 004c 9DF810C0 		ldrb	ip, [sp, #16]	@ zero_extendqisi2
+ 181:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[5]<<8)  |
+ 697              		.loc 1 181 73 view .LVU248
+ 698 0050 43EA0C03 		orr	r3, r3, ip
+ 179:Core/Src/can_init.c ****                                         ((unsigned int)msg.data[6]<<16) |
+ 699              		.loc 1 179 38 view .LVU249
+ 700 0054 C1F88C31 		str	r3, [r1, #396]
  183:Core/Src/can_init.c **** 
  184:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TDTR |= (msg.len<<0);
- 693              		.loc 1 184 5 is_stmt 1 view .LVU244
- 694              		.loc 1 184 32 is_stmt 0 view .LVU245
- 695 0058 00F11803 		add	r3, r0, #24
- 696 005c 4FEA031C 		lsl	ip, r3, #4
- 697 0060 02EB0313 		add	r3, r2, r3, lsl #4
- 698 0064 5968     		ldr	r1, [r3, #4]
- 699              		.loc 1 184 45 view .LVU246
- 700 0066 9DF814E0 		ldrb	lr, [sp, #20]	@ zero_extendqisi2
- 701              		.loc 1 184 38 view .LVU247
- 702 006a 41EA0E01 		orr	r1, r1, lr
- 703 006e 5960     		str	r1, [r3, #4]
+ 701              		.loc 1 184 5 is_stmt 1 view .LVU250
+ 702              		.loc 1 184 32 is_stmt 0 view .LVU251
+ 703 0058 00F11803 		add	r3, r0, #24
+ 704 005c 4FEA031C 		lsl	ip, r3, #4
+ 705 0060 02EB0313 		add	r3, r2, r3, lsl #4
+ 706 0064 5968     		ldr	r1, [r3, #4]
+ 707              		.loc 1 184 45 view .LVU252
+ 708 0066 9DF814E0 		ldrb	lr, [sp, #20]	@ zero_extendqisi2
+ 709              		.loc 1 184 38 view .LVU253
+ 710 006a 41EA0E01 		orr	r1, r1, lr
+ 711 006e 5960     		str	r1, [r3, #4]
  185:Core/Src/can_init.c **** 
  186:Core/Src/can_init.c ****   
  187:Core/Src/can_init.c ****     //Clear the MailBox TIR register (reset value 0xXXXX XXXX)
  188:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TIR &= ~0xFFFFFFFF;
- 704              		.loc 1 188 5 is_stmt 1 view .LVU248
- 705              		.loc 1 188 32 is_stmt 0 view .LVU249
- 706 0070 52F80C30 		ldr	r3, [r2, ip]
- 707              		.loc 1 188 37 view .LVU250
- 708 0074 0023     		movs	r3, #0
- 709 0076 42F80C30 		str	r3, [r2, ip]
+ 712              		.loc 1 188 5 is_stmt 1 view .LVU254
+ 713              		.loc 1 188 32 is_stmt 0 view .LVU255
+ 714 0070 52F80C30 		ldr	r3, [r2, ip]
+ 715              		.loc 1 188 37 view .LVU256
+ 716 0074 0023     		movs	r3, #0
+ 717 0076 42F80C30 		str	r3, [r2, ip]
  189:Core/Src/can_init.c **** 
  190:Core/Src/can_init.c ****     if (msg.format == STANDART_FORMAT) //Standart CAN identifier
- 710              		.loc 1 190 5 is_stmt 1 view .LVU251
- 711              		.loc 1 190 12 is_stmt 0 view .LVU252
- 712 007a 9DF81530 		ldrb	r3, [sp, #21]	@ zero_extendqisi2
- 713              		.loc 1 190 8 view .LVU253
- 714 007e EBB9     		cbnz	r3, .L36
+ARM GAS  /tmp/ccsVbt6z.s 			page 17
+
+
+ 718              		.loc 1 190 5 is_stmt 1 view .LVU257
+ 719              		.loc 1 190 12 is_stmt 0 view .LVU258
+ 720 007a 9DF81530 		ldrb	r3, [sp, #21]	@ zero_extendqisi2
+ 721              		.loc 1 190 8 view .LVU259
+ 722 007e EBB9     		cbnz	r3, .L34
  191:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR &= ~(1<<2);	//
- 715              		.loc 1 191 9 is_stmt 1 view .LVU254
- 716              		.loc 1 191 36 is_stmt 0 view .LVU255
- 717 0080 1146     		mov	r1, r2
- 718 0082 52F80C20 		ldr	r2, [r2, ip]
-ARM GAS  /tmp/ccpT1VcF.s 			page 17
-
-
- 719              		.loc 1 191 41 view .LVU256
- 720 0086 22F00402 		bic	r2, r2, #4
- 721 008a 41F80C20 		str	r2, [r1, ip]
- 722              	.L37:
+ 723              		.loc 1 191 9 is_stmt 1 view .LVU260
+ 724              		.loc 1 191 36 is_stmt 0 view .LVU261
+ 725 0080 1146     		mov	r1, r2
+ 726 0082 52F80C20 		ldr	r2, [r2, ip]
+ 727              		.loc 1 191 41 view .LVU262
+ 728 0086 22F00402 		bic	r2, r2, #4
+ 729 008a 41F80C20 		str	r2, [r1, ip]
+ 730              	.L35:
  192:Core/Src/can_init.c ****     else if(msg.format == EXTENDED_FORMAT) //Extended CAN identifier
  193:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
  194:Core/Src/can_init.c ****     
  195:Core/Src/can_init.c ****     
  196:Core/Src/can_init.c ****     if(msg.type == DATA_FRAME)  //Data frame
- 723              		.loc 1 196 5 is_stmt 1 view .LVU257
- 724              		.loc 1 196 11 is_stmt 0 view .LVU258
- 725 008e 9DF81630 		ldrb	r3, [sp, #22]	@ zero_extendqisi2
- 726              		.loc 1 196 7 view .LVU259
- 727 0092 F3B9     		cbnz	r3, .L38
+ 731              		.loc 1 196 5 is_stmt 1 view .LVU263
+ 732              		.loc 1 196 11 is_stmt 0 view .LVU264
+ 733 008e 9DF81630 		ldrb	r3, [sp, #22]	@ zero_extendqisi2
+ 734              		.loc 1 196 7 view .LVU265
+ 735 0092 F3B9     		cbnz	r3, .L36
  197:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR &= ~(1<<1);
- 728              		.loc 1 197 9 is_stmt 1 view .LVU260
- 729              		.loc 1 197 36 is_stmt 0 view .LVU261
- 730 0094 1449     		ldr	r1, .L41
- 731 0096 00F11803 		add	r3, r0, #24
- 732 009a 1B01     		lsls	r3, r3, #4
- 733 009c CA58     		ldr	r2, [r1, r3]
- 734              		.loc 1 197 41 view .LVU262
- 735 009e 22F00202 		bic	r2, r2, #2
- 736 00a2 CA50     		str	r2, [r1, r3]
- 737              	.L39:
+ 736              		.loc 1 197 9 is_stmt 1 view .LVU266
+ 737              		.loc 1 197 36 is_stmt 0 view .LVU267
+ 738 0094 1449     		ldr	r1, .L39
+ 739 0096 00F11803 		add	r3, r0, #24
+ 740 009a 1B01     		lsls	r3, r3, #4
+ 741 009c CA58     		ldr	r2, [r1, r3]
+ 742              		.loc 1 197 41 view .LVU268
+ 743 009e 22F00202 		bic	r2, r2, #2
+ 744 00a2 CA50     		str	r2, [r1, r3]
+ 745              	.L37:
  198:Core/Src/can_init.c ****     else if(msg.type == REMOTE_FRAME) //Remote Frame
  199:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
  200:Core/Src/can_init.c **** 
  201:Core/Src/can_init.c ****     
  202:Core/Src/can_init.c ****     CAN1->sTxMailBox[TxMailBox].TIR |= (msg.id<<21); // Standart ID = 21 
- 738              		.loc 1 202 5 is_stmt 1 view .LVU263
- 739              		.loc 1 202 32 is_stmt 0 view .LVU264
- 740 00a4 104A     		ldr	r2, .L41
- 741 00a6 1830     		adds	r0, r0, #24
- 742              	.LVL8:
- 743              		.loc 1 202 32 view .LVU265
- 744 00a8 0001     		lsls	r0, r0, #4
- 745              	.LVL9:
- 746              		.loc 1 202 32 view .LVU266
- 747 00aa 1358     		ldr	r3, [r2, r0]
- 748              		.loc 1 202 37 view .LVU267
- 749 00ac 0299     		ldr	r1, [sp, #8]
- 750 00ae 43EA4153 		orr	r3, r3, r1, lsl #21
- 751 00b2 1350     		str	r3, [r2, r0]
- 752              	.L34:
+ 746              		.loc 1 202 5 is_stmt 1 view .LVU269
+ 747              		.loc 1 202 32 is_stmt 0 view .LVU270
+ 748 00a4 104A     		ldr	r2, .L39
+ 749 00a6 1830     		adds	r0, r0, #24
+ 750              	.LVL8:
+ 751              		.loc 1 202 32 view .LVU271
+ 752 00a8 0001     		lsls	r0, r0, #4
+ 753              	.LVL9:
+ 754              		.loc 1 202 32 view .LVU272
+ 755 00aa 1358     		ldr	r3, [r2, r0]
+ 756              		.loc 1 202 37 view .LVU273
+ 757 00ac 0299     		ldr	r1, [sp, #8]
+ 758 00ae 43EA4153 		orr	r3, r3, r1, lsl #21
+ 759 00b2 1350     		str	r3, [r2, r0]
+ 760              	.L32:
  203:Core/Src/can_init.c **** 
  204:Core/Src/can_init.c **** 
+ARM GAS  /tmp/ccsVbt6z.s 			page 18
+
+
  205:Core/Src/can_init.c **** }
- 753              		.loc 1 205 1 view .LVU268
- 754 00b4 5DF804EB 		ldr	lr, [sp], #4
- 755              		.cfi_remember_state
- 756              		.cfi_restore 14
- 757              		.cfi_def_cfa_offset 16
- 758 00b8 04B0     		add	sp, sp, #16
- 759              		.cfi_def_cfa_offset 0
- 760 00ba 7047     		bx	lr
- 761              	.LVL10:
-ARM GAS  /tmp/ccpT1VcF.s 			page 18
+ 761              		.loc 1 205 1 view .LVU274
+ 762 00b4 5DF804EB 		ldr	lr, [sp], #4
+ 763              		.cfi_remember_state
+ 764              		.cfi_restore 14
+ 765              		.cfi_def_cfa_offset 16
+ 766 00b8 04B0     		add	sp, sp, #16
+ 767              		.cfi_def_cfa_offset 0
+ 768 00ba 7047     		bx	lr
+ 769              	.LVL10:
+ 770              	.L34:
+ 771              		.cfi_restore_state
+ 192:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
+ 772              		.loc 1 192 10 is_stmt 1 view .LVU275
+ 192:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
+ 773              		.loc 1 192 12 is_stmt 0 view .LVU276
+ 774 00bc 012B     		cmp	r3, #1
+ 775 00be E6D1     		bne	.L35
+ 193:Core/Src/can_init.c ****     
+ 776              		.loc 1 193 9 is_stmt 1 view .LVU277
+ 193:Core/Src/can_init.c ****     
+ 777              		.loc 1 193 36 is_stmt 0 view .LVU278
+ 778 00c0 0949     		ldr	r1, .L39
+ 779 00c2 00F11803 		add	r3, r0, #24
+ 780 00c6 1B01     		lsls	r3, r3, #4
+ 781 00c8 CA58     		ldr	r2, [r1, r3]
+ 193:Core/Src/can_init.c ****     
+ 782              		.loc 1 193 41 view .LVU279
+ 783 00ca 42F00402 		orr	r2, r2, #4
+ 784 00ce CA50     		str	r2, [r1, r3]
+ 785 00d0 DDE7     		b	.L35
+ 786              	.L36:
+ 198:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
+ 787              		.loc 1 198 10 is_stmt 1 view .LVU280
+ 198:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
+ 788              		.loc 1 198 12 is_stmt 0 view .LVU281
+ 789 00d2 012B     		cmp	r3, #1
+ 790 00d4 E6D1     		bne	.L37
+ 199:Core/Src/can_init.c **** 
+ 791              		.loc 1 199 9 is_stmt 1 view .LVU282
+ 199:Core/Src/can_init.c **** 
+ 792              		.loc 1 199 36 is_stmt 0 view .LVU283
+ 793 00d6 0449     		ldr	r1, .L39
+ 794 00d8 00F11803 		add	r3, r0, #24
+ 795 00dc 1B01     		lsls	r3, r3, #4
+ 796 00de CA58     		ldr	r2, [r1, r3]
+ 199:Core/Src/can_init.c **** 
+ 797              		.loc 1 199 41 view .LVU284
+ 798 00e0 42F00202 		orr	r2, r2, #2
+ 799 00e4 CA50     		str	r2, [r1, r3]
+ 800 00e6 DDE7     		b	.L37
+ 801              	.L40:
+ 802              		.align	2
+ 803              	.L39:
+ 804 00e8 00640040 		.word	1073767424
+ 805              		.cfi_endproc
+ 806              	.LFE72:
+ARM GAS  /tmp/ccsVbt6z.s 			page 19
 
 
- 762              	.L36:
- 763              		.cfi_restore_state
- 192:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
- 764              		.loc 1 192 10 is_stmt 1 view .LVU269
- 192:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
- 765              		.loc 1 192 12 is_stmt 0 view .LVU270
- 766 00bc 012B     		cmp	r3, #1
- 767 00be E6D1     		bne	.L37
- 193:Core/Src/can_init.c ****     
- 768              		.loc 1 193 9 is_stmt 1 view .LVU271
- 193:Core/Src/can_init.c ****     
- 769              		.loc 1 193 36 is_stmt 0 view .LVU272
- 770 00c0 0949     		ldr	r1, .L41
- 771 00c2 00F11803 		add	r3, r0, #24
- 772 00c6 1B01     		lsls	r3, r3, #4
- 773 00c8 CA58     		ldr	r2, [r1, r3]
- 193:Core/Src/can_init.c ****     
- 774              		.loc 1 193 41 view .LVU273
- 775 00ca 42F00402 		orr	r2, r2, #4
- 776 00ce CA50     		str	r2, [r1, r3]
- 777 00d0 DDE7     		b	.L37
- 778              	.L38:
- 198:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
- 779              		.loc 1 198 10 is_stmt 1 view .LVU274
- 198:Core/Src/can_init.c ****         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
- 780              		.loc 1 198 12 is_stmt 0 view .LVU275
- 781 00d2 012B     		cmp	r3, #1
- 782 00d4 E6D1     		bne	.L39
- 199:Core/Src/can_init.c **** 
- 783              		.loc 1 199 9 is_stmt 1 view .LVU276
- 199:Core/Src/can_init.c **** 
- 784              		.loc 1 199 36 is_stmt 0 view .LVU277
- 785 00d6 0449     		ldr	r1, .L41
- 786 00d8 00F11803 		add	r3, r0, #24
- 787 00dc 1B01     		lsls	r3, r3, #4
- 788 00de CA58     		ldr	r2, [r1, r3]
- 199:Core/Src/can_init.c **** 
- 789              		.loc 1 199 41 view .LVU278
- 790 00e0 42F00202 		orr	r2, r2, #2
- 791 00e4 CA50     		str	r2, [r1, r3]
- 792 00e6 DDE7     		b	.L39
- 793              	.L42:
- 794              		.align	2
- 795              	.L41:
- 796 00e8 00640040 		.word	1073767424
- 797              		.cfi_endproc
- 798              	.LFE72:
- 800              		.section	.text.can_mesaj_gonderla,"ax",%progbits
- 801              		.align	1
- 802              		.global	can_mesaj_gonderla
- 803              		.syntax unified
- 804              		.thumb
- 805              		.thumb_func
- 807              	can_mesaj_gonderla:
- 808              	.LFB73:
+ 808              		.section	.text.can_mesaj_gonderla,"ax",%progbits
+ 809              		.align	1
+ 810              		.global	can_mesaj_gonderla
+ 811              		.syntax unified
+ 812              		.thumb
+ 813              		.thumb_func
+ 815              	can_mesaj_gonderla:
+ 816              	.LFB73:
  206:Core/Src/can_init.c **** 
  207:Core/Src/can_init.c **** void can_mesaj_gonderla(void){
-ARM GAS  /tmp/ccpT1VcF.s 			page 19
-
-
- 809              		.loc 1 207 30 is_stmt 1 view -0
- 810              		.cfi_startproc
- 811              		@ args = 0, pretend = 0, frame = 0
- 812              		@ frame_needed = 0, uses_anonymous_args = 0
- 813              		@ link register save eliminated.
+ 817              		.loc 1 207 30 is_stmt 1 view -0
+ 818              		.cfi_startproc
+ 819              		@ args = 0, pretend = 0, frame = 0
+ 820              		@ frame_needed = 0, uses_anonymous_args = 0
+ 821              		@ link register save eliminated.
  208:Core/Src/can_init.c ****     
  209:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR |= (0x3FFFF<<3); 
  210:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR &= ~(1<<1); // data frame 
@@ -1102,50 +1112,50 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  221:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TDTR |= (1<<1);
  222:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TDTR |= (1<<0);
  223:Core/Src/can_init.c ****     CAN1->IER |= (1<<0);                   // Enable TME interrup
- 814              		.loc 1 223 5 view .LVU280
- 815              		.loc 1 223 9 is_stmt 0 view .LVU281
- 816 0000 054B     		ldr	r3, .L44
- 817 0002 5A69     		ldr	r2, [r3, #20]
- 818              		.loc 1 223 15 view .LVU282
- 819 0004 42F00102 		orr	r2, r2, #1
- 820 0008 5A61     		str	r2, [r3, #20]
+ 822              		.loc 1 223 5 view .LVU286
+ 823              		.loc 1 223 9 is_stmt 0 view .LVU287
+ 824 0000 054B     		ldr	r3, .L42
+ 825 0002 5A69     		ldr	r2, [r3, #20]
+ 826              		.loc 1 223 15 view .LVU288
+ 827 0004 42F00102 		orr	r2, r2, #1
+ 828 0008 5A61     		str	r2, [r3, #20]
  224:Core/Src/can_init.c ****     CAN1->sTxMailBox[0].TIR |= (1<<0);     // Transmit message   
- 821              		.loc 1 224 5 is_stmt 1 view .LVU283
- 822              		.loc 1 224 24 is_stmt 0 view .LVU284
- 823 000a D3F88021 		ldr	r2, [r3, #384]
- 824              		.loc 1 224 29 view .LVU285
- 825 000e 42F00102 		orr	r2, r2, #1
- 826 0012 C3F88021 		str	r2, [r3, #384]
+ 829              		.loc 1 224 5 is_stmt 1 view .LVU289
+ 830              		.loc 1 224 24 is_stmt 0 view .LVU290
+ 831 000a D3F88021 		ldr	r2, [r3, #384]
+ 832              		.loc 1 224 29 view .LVU291
+ 833 000e 42F00102 		orr	r2, r2, #1
+ 834 0012 C3F88021 		str	r2, [r3, #384]
  225:Core/Src/can_init.c **** }
- 827              		.loc 1 225 1 view .LVU286
- 828 0016 7047     		bx	lr
- 829              	.L45:
- 830              		.align	2
- 831              	.L44:
- 832 0018 00640040 		.word	1073767424
- 833              		.cfi_endproc
- 834              	.LFE73:
- 836              		.section	.text.USB_HP_CAN1_TX_IRQHandler,"ax",%progbits
- 837              		.align	1
- 838              		.global	USB_HP_CAN1_TX_IRQHandler
- 839              		.syntax unified
- 840              		.thumb
- 841              		.thumb_func
- 843              	USB_HP_CAN1_TX_IRQHandler:
- 844              	.LFB74:
+ 835              		.loc 1 225 1 view .LVU292
+ 836 0016 7047     		bx	lr
+ 837              	.L43:
+ 838              		.align	2
+ 839              	.L42:
+ 840 0018 00640040 		.word	1073767424
+ 841              		.cfi_endproc
+ 842              	.LFE73:
+ 844              		.section	.text.USB_HP_CAN1_TX_IRQHandler,"ax",%progbits
+ 845              		.align	1
+ 846              		.global	USB_HP_CAN1_TX_IRQHandler
+ARM GAS  /tmp/ccsVbt6z.s 			page 20
+
+
+ 847              		.syntax unified
+ 848              		.thumb
+ 849              		.thumb_func
+ 851              	USB_HP_CAN1_TX_IRQHandler:
+ 852              	.LFB74:
  226:Core/Src/can_init.c **** 
  227:Core/Src/can_init.c **** void USB_HP_CAN1_TX_IRQHandler(void){
- 845              		.loc 1 227 37 is_stmt 1 view -0
- 846              		.cfi_startproc
- 847              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccpT1VcF.s 			page 20
-
-
- 848              		@ frame_needed = 0, uses_anonymous_args = 0
- 849 0000 08B5     		push	{r3, lr}
- 850              		.cfi_def_cfa_offset 8
- 851              		.cfi_offset 3, -8
- 852              		.cfi_offset 14, -4
+ 853              		.loc 1 227 37 is_stmt 1 view -0
+ 854              		.cfi_startproc
+ 855              		@ args = 0, pretend = 0, frame = 0
+ 856              		@ frame_needed = 0, uses_anonymous_args = 0
+ 857 0000 08B5     		push	{r3, lr}
+ 858              		.cfi_def_cfa_offset 8
+ 859              		.cfi_offset 3, -8
+ 860              		.cfi_offset 14, -4
  228:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX
  229:Core/Src/can_init.c ****     //CAN1->sTxMailBox[0].TIR |= (1<<2); //extended identifier
  230:Core/Src/can_init.c ****       
@@ -1157,178 +1167,145 @@ ARM GAS  /tmp/ccpT1VcF.s 			page 1
  236:Core/Src/can_init.c ****     // Setup data bytes
  237:Core/Src/can_init.c **** 
  238:Core/Src/can_init.c ****     can_mesaj_gonderla(); 
- 853              		.loc 1 238 5 view .LVU288
- 854 0002 FFF7FEFF 		bl	can_mesaj_gonderla
- 855              	.LVL11:
+ 861              		.loc 1 238 5 view .LVU294
+ 862 0002 FFF7FEFF 		bl	can_mesaj_gonderla
+ 863              	.LVL11:
  239:Core/Src/can_init.c ****     for(int i = 0; i<=1000000; i++);
- 856              		.loc 1 239 5 view .LVU289
- 857              	.LBB2:
- 858              		.loc 1 239 9 view .LVU290
- 859              		.loc 1 239 13 is_stmt 0 view .LVU291
- 860 0006 0023     		movs	r3, #0
- 861              		.loc 1 239 5 view .LVU292
- 862 0008 00E0     		b	.L47
- 863              	.LVL12:
- 864              	.L48:
- 865              		.loc 1 239 33 is_stmt 1 discriminator 3 view .LVU293
- 866 000a 0133     		adds	r3, r3, #1
- 867              	.LVL13:
- 868              	.L47:
- 869              		.loc 1 239 21 discriminator 1 view .LVU294
- 870 000c 014A     		ldr	r2, .L50
- 871 000e 9342     		cmp	r3, r2
- 872 0010 FBDD     		ble	.L48
- 873              	.LBE2:
+ 864              		.loc 1 239 5 view .LVU295
+ 865              	.LBB2:
+ 866              		.loc 1 239 9 view .LVU296
+ 867              		.loc 1 239 13 is_stmt 0 view .LVU297
+ 868 0006 0023     		movs	r3, #0
+ 869              		.loc 1 239 5 view .LVU298
+ 870 0008 00E0     		b	.L45
+ 871              	.LVL12:
+ 872              	.L46:
+ 873              		.loc 1 239 33 is_stmt 1 discriminator 3 view .LVU299
+ 874 000a 0133     		adds	r3, r3, #1
+ 875              	.LVL13:
+ 876              	.L45:
+ 877              		.loc 1 239 21 discriminator 1 view .LVU300
+ 878 000c 014A     		ldr	r2, .L48
+ 879 000e 9342     		cmp	r3, r2
+ 880 0010 FBDD     		ble	.L46
+ 881              	.LBE2:
  240:Core/Src/can_init.c **** }
- 874              		.loc 1 240 1 is_stmt 0 view .LVU295
- 875 0012 08BD     		pop	{r3, pc}
- 876              	.LVL14:
- 877              	.L51:
- 878              		.loc 1 240 1 view .LVU296
- 879              		.align	2
- 880              	.L50:
- 881 0014 40420F00 		.word	1000000
- 882              		.cfi_endproc
- 883              	.LFE74:
- 885              		.section	.text.USB_LP_CAN1_RX0_IRQHandler,"ax",%progbits
- 886              		.align	1
- 887              		.global	USB_LP_CAN1_RX0_IRQHandler
- 888              		.syntax unified
- 889              		.thumb
- 890              		.thumb_func
- 892              	USB_LP_CAN1_RX0_IRQHandler:
- 893              	.LFB75:
-ARM GAS  /tmp/ccpT1VcF.s 			page 21
+ 882              		.loc 1 240 1 is_stmt 0 view .LVU301
+ 883 0012 08BD     		pop	{r3, pc}
+ 884              	.LVL14:
+ 885              	.L49:
+ 886              		.loc 1 240 1 view .LVU302
+ 887              		.align	2
+ 888              	.L48:
+ 889 0014 40420F00 		.word	1000000
+ARM GAS  /tmp/ccsVbt6z.s 			page 21
 
 
+ 890              		.cfi_endproc
+ 891              	.LFE74:
+ 893              		.section	.text.USB_LP_CAN1_RX0_IRQHandler,"ax",%progbits
+ 894              		.align	1
+ 895              		.global	USB_LP_CAN1_RX0_IRQHandler
+ 896              		.syntax unified
+ 897              		.thumb
+ 898              		.thumb_func
+ 900              	USB_LP_CAN1_RX0_IRQHandler:
+ 901              	.LFB75:
  241:Core/Src/can_init.c **** 
  242:Core/Src/can_init.c **** void USB_LP_CAN1_RX0_IRQHandler(void){
- 894              		.loc 1 242 38 is_stmt 1 view -0
- 895              		.cfi_startproc
- 896              		@ args = 0, pretend = 0, frame = 0
- 897              		@ frame_needed = 0, uses_anonymous_args = 0
- 898 0000 08B5     		push	{r3, lr}
- 899              		.cfi_def_cfa_offset 8
- 900              		.cfi_offset 3, -8
- 901              		.cfi_offset 14, -4
+ 902              		.loc 1 242 38 is_stmt 1 view -0
+ 903              		.cfi_startproc
+ 904              		@ args = 0, pretend = 0, frame = 0
+ 905              		@ frame_needed = 0, uses_anonymous_args = 0
+ 906 0000 08B5     		push	{r3, lr}
+ 907              		.cfi_def_cfa_offset 8
+ 908              		.cfi_offset 3, -8
+ 909              		.cfi_offset 14, -4
  243:Core/Src/can_init.c ****     led_on();
- 902              		.loc 1 243 5 view .LVU298
- 903 0002 FFF7FEFF 		bl	led_on
- 904              	.LVL15:
+ 910              		.loc 1 243 5 view .LVU304
+ 911 0002 FFF7FEFF 		bl	led_on
+ 912              	.LVL15:
  244:Core/Src/can_init.c ****     readMessage();
- 905              		.loc 1 244 5 view .LVU299
- 906 0006 FFF7FEFF 		bl	readMessage
- 907              	.LVL16:
+ 913              		.loc 1 244 5 view .LVU305
+ 914 0006 FFF7FEFF 		bl	readMessage
+ 915              	.LVL16:
  245:Core/Src/can_init.c **** }
- 908              		.loc 1 245 1 is_stmt 0 view .LVU300
- 909 000a 08BD     		pop	{r3, pc}
- 910              		.cfi_endproc
- 911              	.LFE75:
- 913              		.section	.text.CAN1_RX1_IRQHandler,"ax",%progbits
- 914              		.align	1
- 915              		.global	CAN1_RX1_IRQHandler
- 916              		.syntax unified
- 917              		.thumb
- 918              		.thumb_func
- 920              	CAN1_RX1_IRQHandler:
- 921              	.LFB76:
- 246:Core/Src/can_init.c **** 
- 247:Core/Src/can_init.c **** void CAN1_RX1_IRQHandler(void){
- 922              		.loc 1 247 31 is_stmt 1 view -0
- 923              		.cfi_startproc
- 924              		@ args = 0, pretend = 0, frame = 0
- 925              		@ frame_needed = 0, uses_anonymous_args = 0
- 926 0000 08B5     		push	{r3, lr}
- 927              		.cfi_def_cfa_offset 8
- 928              		.cfi_offset 3, -8
- 929              		.cfi_offset 14, -4
- 248:Core/Src/can_init.c ****   led_on();
- 930              		.loc 1 248 3 view .LVU302
- 931 0002 FFF7FEFF 		bl	led_on
- 932              	.LVL17:
- 249:Core/Src/can_init.c ****   readMessage();  
- 933              		.loc 1 249 3 view .LVU303
- 934 0006 FFF7FEFF 		bl	readMessage
- 935              	.LVL18:
- 250:Core/Src/can_init.c **** }
- 936              		.loc 1 250 1 is_stmt 0 view .LVU304
- 937 000a 08BD     		pop	{r3, pc}
- 938              		.cfi_endproc
- 939              	.LFE76:
- 941              		.section	.bss.CAN_filterIdx.0,"aw",%nobits
- 942              		.align	1
- 945              	CAN_filterIdx.0:
-ARM GAS  /tmp/ccpT1VcF.s 			page 22
+ 916              		.loc 1 245 1 is_stmt 0 view .LVU306
+ 917 000a 08BD     		pop	{r3, pc}
+ 918              		.cfi_endproc
+ 919              	.LFE75:
+ 921              		.section	.bss.CAN_filterIdx.0,"aw",%nobits
+ 922              		.align	1
+ 925              	CAN_filterIdx.0:
+ 926 0000 0000     		.space	2
+ 927              		.global	CAN_RxMsg
+ 928              		.section	.bss.CAN_RxMsg,"aw",%nobits
+ 929              		.align	2
+ 932              	CAN_RxMsg:
+ 933 0000 00000000 		.space	16
+ 933      00000000 
+ 933      00000000 
+ 933      00000000 
+ 934              		.global	CAN_TxMsg
+ 935              		.section	.bss.CAN_TxMsg,"aw",%nobits
+ 936              		.align	2
+ 939              	CAN_TxMsg:
+ 940 0000 00000000 		.space	16
+ 940      00000000 
+ 940      00000000 
+ 940      00000000 
+ 941              		.text
+ 942              	.Letext0:
+ 943              		.file 2 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 944              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ARM GAS  /tmp/ccsVbt6z.s 			page 22
 
 
- 946 0000 0000     		.space	2
- 947              		.global	CAN_RxMsg
- 948              		.section	.bss.CAN_RxMsg,"aw",%nobits
- 949              		.align	2
- 952              	CAN_RxMsg:
- 953 0000 00000000 		.space	16
- 953      00000000 
- 953      00000000 
- 953      00000000 
- 954              		.global	CAN_TxMsg
- 955              		.section	.bss.CAN_TxMsg,"aw",%nobits
- 956              		.align	2
- 959              	CAN_TxMsg:
- 960 0000 00000000 		.space	16
- 960      00000000 
- 960      00000000 
- 960      00000000 
- 961              		.text
- 962              	.Letext0:
- 963              		.file 2 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 964              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 965              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
- 966              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 967              		.file 6 "Core/Inc/can_init.h"
-ARM GAS  /tmp/ccpT1VcF.s 			page 23
+ 945              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 946              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 947              		.file 6 "Core/Inc/can_init.h"
+ARM GAS  /tmp/ccsVbt6z.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 can_init.c
-     /tmp/ccpT1VcF.s:19     .text.clock_enable:00000000 $t
-     /tmp/ccpT1VcF.s:25     .text.clock_enable:00000000 clock_enable
-     /tmp/ccpT1VcF.s:56     .text.clock_enable:0000001c $d
-     /tmp/ccpT1VcF.s:61     .text.led_init:00000000 $t
-     /tmp/ccpT1VcF.s:67     .text.led_init:00000000 led_init
-     /tmp/ccpT1VcF.s:117    .text.led_init:00000038 $d
-     /tmp/ccpT1VcF.s:123    .text.led_on:00000000 $t
-     /tmp/ccpT1VcF.s:129    .text.led_on:00000000 led_on
-     /tmp/ccpT1VcF.s:148    .text.led_on:0000000c $d
-     /tmp/ccpT1VcF.s:153    .text.gpio_enable:00000000 $t
-     /tmp/ccpT1VcF.s:159    .text.gpio_enable:00000000 gpio_enable
-     /tmp/ccpT1VcF.s:224    .text.gpio_enable:00000048 $d
-     /tmp/ccpT1VcF.s:229    .text.can_init:00000000 $t
-     /tmp/ccpT1VcF.s:235    .text.can_init:00000000 can_init
-     /tmp/ccpT1VcF.s:348    .text.can_init:00000088 $d
-     /tmp/ccpT1VcF.s:355    .text.can_filtre_ayarlama_takay03:00000000 $t
-     /tmp/ccpT1VcF.s:361    .text.can_filtre_ayarlama_takay03:00000000 can_filtre_ayarlama_takay03
-     /tmp/ccpT1VcF.s:459    .text.can_filtre_ayarlama_takay03:0000007c $d
-     /tmp/ccpT1VcF.s:945    .bss.CAN_filterIdx.0:00000000 CAN_filterIdx.0
-     /tmp/ccpT1VcF.s:465    .text.readMessage:00000000 $t
-     /tmp/ccpT1VcF.s:471    .text.readMessage:00000000 readMessage
-     /tmp/ccpT1VcF.s:622    .text.readMessage:000000ac $d
-     /tmp/ccpT1VcF.s:952    .bss.CAN_RxMsg:00000000 CAN_RxMsg
-     /tmp/ccpT1VcF.s:628    .text.Set_TxMailBox:00000000 $t
-     /tmp/ccpT1VcF.s:634    .text.Set_TxMailBox:00000000 Set_TxMailBox
-     /tmp/ccpT1VcF.s:796    .text.Set_TxMailBox:000000e8 $d
-     /tmp/ccpT1VcF.s:801    .text.can_mesaj_gonderla:00000000 $t
-     /tmp/ccpT1VcF.s:807    .text.can_mesaj_gonderla:00000000 can_mesaj_gonderla
-     /tmp/ccpT1VcF.s:832    .text.can_mesaj_gonderla:00000018 $d
-     /tmp/ccpT1VcF.s:837    .text.USB_HP_CAN1_TX_IRQHandler:00000000 $t
-     /tmp/ccpT1VcF.s:843    .text.USB_HP_CAN1_TX_IRQHandler:00000000 USB_HP_CAN1_TX_IRQHandler
-     /tmp/ccpT1VcF.s:881    .text.USB_HP_CAN1_TX_IRQHandler:00000014 $d
-     /tmp/ccpT1VcF.s:886    .text.USB_LP_CAN1_RX0_IRQHandler:00000000 $t
-     /tmp/ccpT1VcF.s:892    .text.USB_LP_CAN1_RX0_IRQHandler:00000000 USB_LP_CAN1_RX0_IRQHandler
-     /tmp/ccpT1VcF.s:914    .text.CAN1_RX1_IRQHandler:00000000 $t
-     /tmp/ccpT1VcF.s:920    .text.CAN1_RX1_IRQHandler:00000000 CAN1_RX1_IRQHandler
-     /tmp/ccpT1VcF.s:942    .bss.CAN_filterIdx.0:00000000 $d
-     /tmp/ccpT1VcF.s:949    .bss.CAN_RxMsg:00000000 $d
-     /tmp/ccpT1VcF.s:959    .bss.CAN_TxMsg:00000000 CAN_TxMsg
-     /tmp/ccpT1VcF.s:956    .bss.CAN_TxMsg:00000000 $d
+     /tmp/ccsVbt6z.s:19     .text.clock_enable:00000000 $t
+     /tmp/ccsVbt6z.s:25     .text.clock_enable:00000000 clock_enable
+     /tmp/ccsVbt6z.s:56     .text.clock_enable:0000001c $d
+     /tmp/ccsVbt6z.s:61     .text.led_init:00000000 $t
+     /tmp/ccsVbt6z.s:67     .text.led_init:00000000 led_init
+     /tmp/ccsVbt6z.s:117    .text.led_init:00000038 $d
+     /tmp/ccsVbt6z.s:123    .text.led_on:00000000 $t
+     /tmp/ccsVbt6z.s:129    .text.led_on:00000000 led_on
+     /tmp/ccsVbt6z.s:148    .text.led_on:0000000c $d
+     /tmp/ccsVbt6z.s:153    .text.gpio_enable:00000000 $t
+     /tmp/ccsVbt6z.s:159    .text.gpio_enable:00000000 gpio_enable
+     /tmp/ccsVbt6z.s:224    .text.gpio_enable:00000048 $d
+     /tmp/ccsVbt6z.s:229    .text.can_init:00000000 $t
+     /tmp/ccsVbt6z.s:235    .text.can_init:00000000 can_init
+     /tmp/ccsVbt6z.s:354    .text.can_init:00000090 $d
+     /tmp/ccsVbt6z.s:361    .text.can_filtre_ayarlama_takay03:00000000 $t
+     /tmp/ccsVbt6z.s:367    .text.can_filtre_ayarlama_takay03:00000000 can_filtre_ayarlama_takay03
+     /tmp/ccsVbt6z.s:467    .text.can_filtre_ayarlama_takay03:00000084 $d
+     /tmp/ccsVbt6z.s:925    .bss.CAN_filterIdx.0:00000000 CAN_filterIdx.0
+     /tmp/ccsVbt6z.s:473    .text.readMessage:00000000 $t
+     /tmp/ccsVbt6z.s:479    .text.readMessage:00000000 readMessage
+     /tmp/ccsVbt6z.s:630    .text.readMessage:000000ac $d
+     /tmp/ccsVbt6z.s:932    .bss.CAN_RxMsg:00000000 CAN_RxMsg
+     /tmp/ccsVbt6z.s:636    .text.Set_TxMailBox:00000000 $t
+     /tmp/ccsVbt6z.s:642    .text.Set_TxMailBox:00000000 Set_TxMailBox
+     /tmp/ccsVbt6z.s:804    .text.Set_TxMailBox:000000e8 $d
+     /tmp/ccsVbt6z.s:809    .text.can_mesaj_gonderla:00000000 $t
+     /tmp/ccsVbt6z.s:815    .text.can_mesaj_gonderla:00000000 can_mesaj_gonderla
+     /tmp/ccsVbt6z.s:840    .text.can_mesaj_gonderla:00000018 $d
+     /tmp/ccsVbt6z.s:845    .text.USB_HP_CAN1_TX_IRQHandler:00000000 $t
+     /tmp/ccsVbt6z.s:851    .text.USB_HP_CAN1_TX_IRQHandler:00000000 USB_HP_CAN1_TX_IRQHandler
+     /tmp/ccsVbt6z.s:889    .text.USB_HP_CAN1_TX_IRQHandler:00000014 $d
+     /tmp/ccsVbt6z.s:894    .text.USB_LP_CAN1_RX0_IRQHandler:00000000 $t
+     /tmp/ccsVbt6z.s:900    .text.USB_LP_CAN1_RX0_IRQHandler:00000000 USB_LP_CAN1_RX0_IRQHandler
+     /tmp/ccsVbt6z.s:922    .bss.CAN_filterIdx.0:00000000 $d
+     /tmp/ccsVbt6z.s:929    .bss.CAN_RxMsg:00000000 $d
+     /tmp/ccsVbt6z.s:939    .bss.CAN_TxMsg:00000000 CAN_TxMsg
+     /tmp/ccsVbt6z.s:936    .bss.CAN_TxMsg:00000000 $d
 
 NO UNDEFINED SYMBOLS

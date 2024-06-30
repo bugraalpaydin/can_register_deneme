@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYF0Pe4.s 			page 1
+ARM GAS  /tmp/cc6Js0aw.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   31:Core/Src/main.c **** 
   32:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
   33:Core/Src/main.c **** /* USER CODE BEGIN PD */
-ARM GAS  /tmp/ccYF0Pe4.s 			page 2
+ARM GAS  /tmp/cc6Js0aw.s 			page 2
 
 
   34:Core/Src/main.c **** 
@@ -94,18 +94,18 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   64:Core/Src/main.c **** int main(void)
   65:Core/Src/main.c **** {
   66:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
-  67:Core/Src/main.c ****   CAN_TxMsg.id = 0x6FF;
+  67:Core/Src/main.c ****   CAN_TxMsg.id = 0x007;
   68:Core/Src/main.c ****   CAN_TxMsg.len = 8;
   69:Core/Src/main.c ****   CAN_TxMsg.format = STANDART_FORMAT;
   70:Core/Src/main.c ****   CAN_TxMsg.type = DATA_FRAME;
-  71:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x004;
-  72:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x004;
-  73:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x004;
-  74:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x004;
-  75:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x004;
-  76:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x004;
-  77:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x004;
-  78:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x004;
+  71:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x52;
+  72:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x31;
+  73:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x69;
+  74:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x12;
+  75:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x02;
+  76:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x27;
+  77:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x11;
+  78:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x17;
   79:Core/Src/main.c **** 
   80:Core/Src/main.c ****   /* USER CODE END 1 */
   81:Core/Src/main.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   88:Core/Src/main.c ****   
   89:Core/Src/main.c ****   /* USER CODE END Init */
   90:Core/Src/main.c **** 
-ARM GAS  /tmp/ccYF0Pe4.s 			page 3
+ARM GAS  /tmp/cc6Js0aw.s 			page 3
 
 
   91:Core/Src/main.c ****   /* Configure the system clock */
@@ -135,11 +135,11 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  102:Core/Src/main.c ****   clock_enable();
  103:Core/Src/main.c ****   gpio_enable();
  104:Core/Src/main.c ****   can_init();
- 105:Core/Src/main.c ****   can_filtre_ayarlama_takay03(0x6FF, 0);
+ 105:Core/Src/main.c ****   can_filtre_ayarlama_takay03(0x007, 0);
  106:Core/Src/main.c ****   Set_TxMailBox(0, CAN_TxMsg);
- 107:Core/Src/main.c ****   CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
- 108:Core/Src/main.c **** 
- 109:Core/Src/main.c ****   can_mesaj_gonderla();
+ 107:Core/Src/main.c **** 
+ 108:Core/Src/main.c ****   can_mesaj_gonderla();
+ 109:Core/Src/main.c ****   HAL_Delay(100);
  110:Core/Src/main.c ****   /* USER CODE END 2 */
  111:Core/Src/main.c ****   /* Infinite loop */
  112:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  145:Core/Src/main.c ****   }
  146:Core/Src/main.c **** 
  147:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
-ARM GAS  /tmp/ccYF0Pe4.s 			page 4
+ARM GAS  /tmp/cc6Js0aw.s 			page 4
 
 
  148:Core/Src/main.c ****   */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   53 0016 9A69     		ldr	r2, [r3, #24]
   54 0018 42F00402 		orr	r2, r2, #4
   55 001c 9A61     		str	r2, [r3, #24]
-ARM GAS  /tmp/ccYF0Pe4.s 			page 5
+ARM GAS  /tmp/cc6Js0aw.s 			page 5
 
 
   56              		.loc 1 174 3 view .LVU10
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   94              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
-ARM GAS  /tmp/ccYF0Pe4.s 			page 6
+ARM GAS  /tmp/cc6Js0aw.s 			page 6
 
 
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
-ARM GAS  /tmp/ccYF0Pe4.s 			page 7
+ARM GAS  /tmp/cc6Js0aw.s 			page 7
 
 
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccYF0Pe4.s 			page 8
+ARM GAS  /tmp/cc6Js0aw.s 			page 8
 
 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  121              	SystemClock_Config:
  122              	.LFB66:
  128:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-ARM GAS  /tmp/ccYF0Pe4.s 			page 9
+ARM GAS  /tmp/cc6Js0aw.s 			page 9
 
 
  123              		.loc 1 128 1 view -0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  163              		.loc 1 140 3 is_stmt 1 view .LVU35
  140:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
  164              		.loc 1 140 35 is_stmt 0 view .LVU36
-ARM GAS  /tmp/ccYF0Pe4.s 			page 10
+ARM GAS  /tmp/cc6Js0aw.s 			page 10
 
 
  165 002a 0E93     		str	r3, [sp, #56]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  201              		.loc 1 156 6 discriminator 1 view .LVU54
  202 0054 20B9     		cbnz	r0, .L12
  160:Core/Src/main.c **** 
-ARM GAS  /tmp/ccYF0Pe4.s 			page 11
+ARM GAS  /tmp/cc6Js0aw.s 			page 11
 
 
  203              		.loc 1 160 1 view .LVU55
@@ -643,173 +643,174 @@ ARM GAS  /tmp/ccYF0Pe4.s 			page 1
  240              		.loc 1 67 3 view .LVU59
   67:Core/Src/main.c ****   CAN_TxMsg.len = 8;
  241              		.loc 1 67 16 is_stmt 0 view .LVU60
- 242 0004 194C     		ldr	r4, .L16
- 243 0006 40F2FF66 		movw	r6, #1791
- 244 000a 2660     		str	r6, [r4]
+ 242 0004 1B4C     		ldr	r4, .L16
+ 243 0006 0726     		movs	r6, #7
+ 244 0008 2660     		str	r6, [r4]
   68:Core/Src/main.c ****   CAN_TxMsg.format = STANDART_FORMAT;
  245              		.loc 1 68 3 is_stmt 1 view .LVU61
   68:Core/Src/main.c ****   CAN_TxMsg.format = STANDART_FORMAT;
  246              		.loc 1 68 17 is_stmt 0 view .LVU62
- 247 000c 0823     		movs	r3, #8
- 248 000e 2373     		strb	r3, [r4, #12]
+ 247 000a 0823     		movs	r3, #8
+ 248 000c 2373     		strb	r3, [r4, #12]
   69:Core/Src/main.c ****   CAN_TxMsg.type = DATA_FRAME;
  249              		.loc 1 69 3 is_stmt 1 view .LVU63
   69:Core/Src/main.c ****   CAN_TxMsg.type = DATA_FRAME;
  250              		.loc 1 69 20 is_stmt 0 view .LVU64
- 251 0010 0025     		movs	r5, #0
- 252 0012 6573     		strb	r5, [r4, #13]
-ARM GAS  /tmp/ccYF0Pe4.s 			page 12
+ 251 000e 0025     		movs	r5, #0
+ 252 0010 6573     		strb	r5, [r4, #13]
+ARM GAS  /tmp/cc6Js0aw.s 			page 12
 
 
-  70:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x004;
+  70:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x52;
  253              		.loc 1 70 3 is_stmt 1 view .LVU65
-  70:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x004;
+  70:Core/Src/main.c ****   CAN_TxMsg.data[0] = 0x52;
  254              		.loc 1 70 18 is_stmt 0 view .LVU66
- 255 0014 A573     		strb	r5, [r4, #14]
-  71:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x004;
+ 255 0012 A573     		strb	r5, [r4, #14]
+  71:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x31;
  256              		.loc 1 71 3 is_stmt 1 view .LVU67
-  71:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x004;
+  71:Core/Src/main.c ****   CAN_TxMsg.data[1] = 0x31;
  257              		.loc 1 71 21 is_stmt 0 view .LVU68
- 258 0016 0423     		movs	r3, #4
- 259 0018 2371     		strb	r3, [r4, #4]
-  72:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x004;
+ 258 0014 5223     		movs	r3, #82
+ 259 0016 2371     		strb	r3, [r4, #4]
+  72:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x69;
  260              		.loc 1 72 3 is_stmt 1 view .LVU69
-  72:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x004;
+  72:Core/Src/main.c ****   CAN_TxMsg.data[2] = 0x69;
  261              		.loc 1 72 21 is_stmt 0 view .LVU70
- 262 001a 6371     		strb	r3, [r4, #5]
-  73:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x004;
- 263              		.loc 1 73 3 is_stmt 1 view .LVU71
-  73:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x004;
- 264              		.loc 1 73 21 is_stmt 0 view .LVU72
- 265 001c A371     		strb	r3, [r4, #6]
-  74:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x004;
- 266              		.loc 1 74 3 is_stmt 1 view .LVU73
-  74:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x004;
- 267              		.loc 1 74 21 is_stmt 0 view .LVU74
- 268 001e E371     		strb	r3, [r4, #7]
-  75:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x004;
- 269              		.loc 1 75 3 is_stmt 1 view .LVU75
-  75:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x004;
- 270              		.loc 1 75 21 is_stmt 0 view .LVU76
- 271 0020 2372     		strb	r3, [r4, #8]
-  76:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x004;
- 272              		.loc 1 76 3 is_stmt 1 view .LVU77
-  76:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x004;
- 273              		.loc 1 76 21 is_stmt 0 view .LVU78
- 274 0022 6372     		strb	r3, [r4, #9]
-  77:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x004;
- 275              		.loc 1 77 3 is_stmt 1 view .LVU79
-  77:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x004;
- 276              		.loc 1 77 21 is_stmt 0 view .LVU80
- 277 0024 A372     		strb	r3, [r4, #10]
+ 262 0018 3123     		movs	r3, #49
+ 263 001a 6371     		strb	r3, [r4, #5]
+  73:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x12;
+ 264              		.loc 1 73 3 is_stmt 1 view .LVU71
+  73:Core/Src/main.c ****   CAN_TxMsg.data[3] = 0x12;
+ 265              		.loc 1 73 21 is_stmt 0 view .LVU72
+ 266 001c 6923     		movs	r3, #105
+ 267 001e A371     		strb	r3, [r4, #6]
+  74:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x02;
+ 268              		.loc 1 74 3 is_stmt 1 view .LVU73
+  74:Core/Src/main.c ****   CAN_TxMsg.data[4] = 0x02;
+ 269              		.loc 1 74 21 is_stmt 0 view .LVU74
+ 270 0020 1223     		movs	r3, #18
+ 271 0022 E371     		strb	r3, [r4, #7]
+  75:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x27;
+ 272              		.loc 1 75 3 is_stmt 1 view .LVU75
+  75:Core/Src/main.c ****   CAN_TxMsg.data[5] = 0x27;
+ 273              		.loc 1 75 21 is_stmt 0 view .LVU76
+ 274 0024 0223     		movs	r3, #2
+ 275 0026 2372     		strb	r3, [r4, #8]
+  76:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x11;
+ 276              		.loc 1 76 3 is_stmt 1 view .LVU77
+  76:Core/Src/main.c ****   CAN_TxMsg.data[6] = 0x11;
+ 277              		.loc 1 76 21 is_stmt 0 view .LVU78
+ 278 0028 2723     		movs	r3, #39
+ 279 002a 6372     		strb	r3, [r4, #9]
+  77:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x17;
+ 280              		.loc 1 77 3 is_stmt 1 view .LVU79
+  77:Core/Src/main.c ****   CAN_TxMsg.data[7] = 0x17;
+ 281              		.loc 1 77 21 is_stmt 0 view .LVU80
+ 282 002c 1123     		movs	r3, #17
+ 283 002e A372     		strb	r3, [r4, #10]
   78:Core/Src/main.c **** 
- 278              		.loc 1 78 3 is_stmt 1 view .LVU81
+ 284              		.loc 1 78 3 is_stmt 1 view .LVU81
   78:Core/Src/main.c **** 
- 279              		.loc 1 78 21 is_stmt 0 view .LVU82
- 280 0026 E372     		strb	r3, [r4, #11]
+ 285              		.loc 1 78 21 is_stmt 0 view .LVU82
+ 286 0030 1723     		movs	r3, #23
+ 287 0032 E372     		strb	r3, [r4, #11]
   85:Core/Src/main.c **** 
- 281              		.loc 1 85 3 is_stmt 1 view .LVU83
- 282 0028 FFF7FEFF 		bl	HAL_Init
- 283              	.LVL5:
+ 288              		.loc 1 85 3 is_stmt 1 view .LVU83
+ 289 0034 FFF7FEFF 		bl	HAL_Init
+ 290              	.LVL5:
+ARM GAS  /tmp/cc6Js0aw.s 			page 13
+
+
   92:Core/Src/main.c **** 
- 284              		.loc 1 92 3 view .LVU84
- 285 002c FFF7FEFF 		bl	SystemClock_Config
- 286              	.LVL6:
+ 291              		.loc 1 92 3 view .LVU84
+ 292 0038 FFF7FEFF 		bl	SystemClock_Config
+ 293              	.LVL6:
   99:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 287              		.loc 1 99 3 view .LVU85
- 288 0030 FFF7FEFF 		bl	MX_GPIO_Init
-ARM GAS  /tmp/ccYF0Pe4.s 			page 13
-
-
- 289              	.LVL7:
+ 294              		.loc 1 99 3 view .LVU85
+ 295 003c FFF7FEFF 		bl	MX_GPIO_Init
+ 296              	.LVL7:
  101:Core/Src/main.c ****   clock_enable();
- 290              		.loc 1 101 3 view .LVU86
- 291 0034 FFF7FEFF 		bl	led_init
- 292              	.LVL8:
+ 297              		.loc 1 101 3 view .LVU86
+ 298 0040 FFF7FEFF 		bl	led_init
+ 299              	.LVL8:
  102:Core/Src/main.c ****   gpio_enable();
- 293              		.loc 1 102 3 view .LVU87
- 294 0038 FFF7FEFF 		bl	clock_enable
- 295              	.LVL9:
+ 300              		.loc 1 102 3 view .LVU87
+ 301 0044 FFF7FEFF 		bl	clock_enable
+ 302              	.LVL9:
  103:Core/Src/main.c ****   can_init();
- 296              		.loc 1 103 3 view .LVU88
- 297 003c FFF7FEFF 		bl	gpio_enable
- 298              	.LVL10:
- 104:Core/Src/main.c ****   can_filtre_ayarlama_takay03(0x6FF, 0);
- 299              		.loc 1 104 3 view .LVU89
- 300 0040 FFF7FEFF 		bl	can_init
- 301              	.LVL11:
+ 303              		.loc 1 103 3 view .LVU88
+ 304 0048 FFF7FEFF 		bl	gpio_enable
+ 305              	.LVL10:
+ 104:Core/Src/main.c ****   can_filtre_ayarlama_takay03(0x007, 0);
+ 306              		.loc 1 104 3 view .LVU89
+ 307 004c FFF7FEFF 		bl	can_init
+ 308              	.LVL11:
  105:Core/Src/main.c ****   Set_TxMailBox(0, CAN_TxMsg);
- 302              		.loc 1 105 3 view .LVU90
- 303 0044 2946     		mov	r1, r5
- 304 0046 3046     		mov	r0, r6
- 305 0048 FFF7FEFF 		bl	can_filtre_ayarlama_takay03
- 306              	.LVL12:
- 106:Core/Src/main.c ****   CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
- 307              		.loc 1 106 3 view .LVU91
- 308 004c E368     		ldr	r3, [r4, #12]
- 309 004e 0093     		str	r3, [sp]
- 310 0050 94E80E00 		ldm	r4, {r1, r2, r3}
- 311 0054 2846     		mov	r0, r5
- 312 0056 FFF7FEFF 		bl	Set_TxMailBox
- 313              	.LVL13:
- 107:Core/Src/main.c **** 
- 314              		.loc 1 107 3 view .LVU92
- 107:Core/Src/main.c **** 
- 315              		.loc 1 107 7 is_stmt 0 view .LVU93
- 316 005a 054A     		ldr	r2, .L16+4
- 317 005c D368     		ldr	r3, [r2, #12]
- 107:Core/Src/main.c **** 
- 318              		.loc 1 107 14 view .LVU94
- 319 005e 43F02003 		orr	r3, r3, #32
- 320 0062 D360     		str	r3, [r2, #12]
- 109:Core/Src/main.c ****   /* USER CODE END 2 */
- 321              		.loc 1 109 3 is_stmt 1 view .LVU95
- 322 0064 FFF7FEFF 		bl	can_mesaj_gonderla
+ 309              		.loc 1 105 3 view .LVU90
+ 310 0050 2946     		mov	r1, r5
+ 311 0052 3046     		mov	r0, r6
+ 312 0054 FFF7FEFF 		bl	can_filtre_ayarlama_takay03
+ 313              	.LVL12:
+ 106:Core/Src/main.c **** 
+ 314              		.loc 1 106 3 view .LVU91
+ 315 0058 E368     		ldr	r3, [r4, #12]
+ 316 005a 0093     		str	r3, [sp]
+ 317 005c 94E80E00 		ldm	r4, {r1, r2, r3}
+ 318 0060 2846     		mov	r0, r5
+ 319 0062 FFF7FEFF 		bl	Set_TxMailBox
+ 320              	.LVL13:
+ 108:Core/Src/main.c ****   HAL_Delay(100);
+ 321              		.loc 1 108 3 view .LVU92
+ 322 0066 FFF7FEFF 		bl	can_mesaj_gonderla
  323              	.LVL14:
- 324              	.L14:
+ 109:Core/Src/main.c ****   /* USER CODE END 2 */
+ 324              		.loc 1 109 3 view .LVU93
+ 325 006a 6420     		movs	r0, #100
+ 326 006c FFF7FEFF 		bl	HAL_Delay
+ 327              	.LVL15:
+ 328              	.L14:
  113:Core/Src/main.c ****   {
- 325              		.loc 1 113 3 view .LVU96
+ 329              		.loc 1 113 3 view .LVU94
  119:Core/Src/main.c ****   /* USER CODE END 3 */
- 326              		.loc 1 119 3 view .LVU97
+ 330              		.loc 1 119 3 view .LVU95
  113:Core/Src/main.c ****   {
- 327              		.loc 1 113 9 view .LVU98
- 328 0068 FEE7     		b	.L14
- 329              	.L17:
- 330 006a 00BF     		.align	2
- 331              	.L16:
- 332 006c 00000000 		.word	CAN_TxMsg
-ARM GAS  /tmp/ccYF0Pe4.s 			page 14
+ 331              		.loc 1 113 9 view .LVU96
+ 332 0070 FEE7     		b	.L14
+ 333              	.L17:
+ 334 0072 00BF     		.align	2
+ARM GAS  /tmp/cc6Js0aw.s 			page 14
 
 
- 333 0070 00640040 		.word	1073767424
- 334              		.cfi_endproc
- 335              	.LFE65:
- 337              		.text
- 338              	.Letext0:
- 339              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 340              		.file 4 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
- 341              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 342              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 343              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 344              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
- 345              		.file 9 "Core/Inc/can_init.h"
- 346              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 347              		.file 11 "<built-in>"
-ARM GAS  /tmp/ccYF0Pe4.s 			page 15
+ 335              	.L16:
+ 336 0074 00000000 		.word	CAN_TxMsg
+ 337              		.cfi_endproc
+ 338              	.LFE65:
+ 340              		.text
+ 341              	.Letext0:
+ 342              		.file 3 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 343              		.file 4 "/home/bugraaa/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-n
+ 344              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 345              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 346              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 347              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 348              		.file 9 "Core/Inc/can_init.h"
+ 349              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 350              		.file 11 "<built-in>"
+ARM GAS  /tmp/cc6Js0aw.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccYF0Pe4.s:19     .text.MX_GPIO_Init:00000000 $t
-     /tmp/ccYF0Pe4.s:24     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-     /tmp/ccYF0Pe4.s:72     .text.MX_GPIO_Init:0000002c $d
-     /tmp/ccYF0Pe4.s:77     .text.Error_Handler:00000000 $t
-     /tmp/ccYF0Pe4.s:83     .text.Error_Handler:00000000 Error_Handler
-     /tmp/ccYF0Pe4.s:115    .text.SystemClock_Config:00000000 $t
-     /tmp/ccYF0Pe4.s:121    .text.SystemClock_Config:00000000 SystemClock_Config
-     /tmp/ccYF0Pe4.s:222    .text.main:00000000 $t
-     /tmp/ccYF0Pe4.s:228    .text.main:00000000 main
-     /tmp/ccYF0Pe4.s:332    .text.main:0000006c $d
+     /tmp/cc6Js0aw.s:19     .text.MX_GPIO_Init:00000000 $t
+     /tmp/cc6Js0aw.s:24     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+     /tmp/cc6Js0aw.s:72     .text.MX_GPIO_Init:0000002c $d
+     /tmp/cc6Js0aw.s:77     .text.Error_Handler:00000000 $t
+     /tmp/cc6Js0aw.s:83     .text.Error_Handler:00000000 Error_Handler
+     /tmp/cc6Js0aw.s:115    .text.SystemClock_Config:00000000 $t
+     /tmp/cc6Js0aw.s:121    .text.SystemClock_Config:00000000 SystemClock_Config
+     /tmp/cc6Js0aw.s:222    .text.main:00000000 $t
+     /tmp/cc6Js0aw.s:228    .text.main:00000000 main
+     /tmp/cc6Js0aw.s:336    .text.main:00000074 $d
 
 UNDEFINED SYMBOLS
 memset
@@ -823,4 +824,5 @@ can_init
 can_filtre_ayarlama_takay03
 Set_TxMailBox
 can_mesaj_gonderla
+HAL_Delay
 CAN_TxMsg

@@ -64,18 +64,18 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  CAN_TxMsg.id = 0x6FF;
+  CAN_TxMsg.id = 0x007;
   CAN_TxMsg.len = 8;
   CAN_TxMsg.format = STANDART_FORMAT;
   CAN_TxMsg.type = DATA_FRAME;
-  CAN_TxMsg.data[0] = 0x004;
-  CAN_TxMsg.data[1] = 0x004;
-  CAN_TxMsg.data[2] = 0x004;
-  CAN_TxMsg.data[3] = 0x004;
-  CAN_TxMsg.data[4] = 0x004;
-  CAN_TxMsg.data[5] = 0x004;
-  CAN_TxMsg.data[6] = 0x004;
-  CAN_TxMsg.data[7] = 0x004;
+  CAN_TxMsg.data[0] = 0x52;
+  CAN_TxMsg.data[1] = 0x31;
+  CAN_TxMsg.data[2] = 0x69;
+  CAN_TxMsg.data[3] = 0x12;
+  CAN_TxMsg.data[4] = 0x02;
+  CAN_TxMsg.data[5] = 0x27;
+  CAN_TxMsg.data[6] = 0x11;
+  CAN_TxMsg.data[7] = 0x17;
 
   /* USER CODE END 1 */
 
@@ -102,9 +102,8 @@ int main(void)
   clock_enable();
   gpio_enable();
   can_init();
-  can_filtre_ayarlama_takay03(0x6FF, 0);
+  can_filtre_ayarlama_takay03(0x007, 0);
   Set_TxMailBox(0, CAN_TxMsg);
-  CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
 
   can_mesaj_gonderla();
   /* USER CODE END 2 */

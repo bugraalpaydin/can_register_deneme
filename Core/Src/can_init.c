@@ -67,7 +67,7 @@ void can_init(void){
 
     CAN1->BTR = 0;              //Reset the bit timing register (reset value 0x0123 0000)
 
-
+    CAN1->BTR |= (1<<30);
     CAN1->BTR &= ~(((        0x03) << 24) | ((        0x07) << 20) | ((         0x0F) << 16) | (          0x1FF)); 
     CAN1->BTR |=  ((((4-1) & 0x03) << 24) | (((5-1) & 0x07) << 20) | (((12-1) & 0x0F) << 16) | (3 & 0x1FF));
     CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
@@ -110,8 +110,8 @@ void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
   CAN1->FS1R |= (unsigned int)(1 << CAN_filterIdx);// set 32-bit scale configuration
   CAN1->FM1R |= (unsigned int)(1 << CAN_filterIdx);// set 2 32-bit identifier list mode
 
-  CAN1->sFilterRegister[CAN_filterIdx].FR1 = id; //  32-bit identifier
-  CAN1->sFilterRegister[CAN_filterIdx].FR2 = id; //  32-bit identifier
+  CAN1->sFilterRegister[CAN_filterIdx].FR1 =  CAN_msgId; //  32-bit identifier
+  CAN1->sFilterRegister[CAN_filterIdx].FR2 = CAN_msgId; //  32-bit identifier
     													   
   CAN1->FFA1R &= ~(unsigned int)(1 << CAN_filterIdx);  // assign filter to FIFO 0
   CAN1->FA1R  |=  (unsigned int)(1 << CAN_filterIdx);  // activate filter
@@ -171,14 +171,14 @@ void Set_TxMailBox(uint32_t TxMailBox, CAN_Msg msg){
     if (TxMailBox > 2)
       return;
     
-    CAN1->sTxMailBox[TxMailBox].TDLR = (((unsigned int)msg.data[3]<< 24) | 
-                                        ((unsigned int)msg.data[2] << 16) |
-                                        ((unsigned int)msg.data[1] <<  8) | 
+    CAN1->sTxMailBox[TxMailBox].TDLR = (((unsigned int)msg.data[3]<<24) | 
+                                        ((unsigned int)msg.data[2]<<16) |
+                                        ((unsigned int)msg.data[1]<<8)  | 
                                         ((unsigned int)msg.data[0]));
 
-    CAN1->sTxMailBox[TxMailBox].TDHR = (((unsigned int)msg.data[7] << 24) | 
-                                        ((unsigned int)msg.data[6] << 16) |
-                                        ((unsigned int)msg.data[5] <<  8) |
+    CAN1->sTxMailBox[TxMailBox].TDHR = (((unsigned int)msg.data[7]<<24) | 
+                                        ((unsigned int)msg.data[6]<<16) |
+                                        ((unsigned int)msg.data[5]<<8)  |
                                         ((unsigned int)msg.data[4]));
 
     CAN1->sTxMailBox[TxMailBox].TDTR |= (msg.len<<0);
@@ -244,7 +244,3 @@ void USB_LP_CAN1_RX0_IRQHandler(void){
     readMessage();
 }
 
-void CAN1_RX1_IRQHandler(void){
-  led_on();
-  readMessage();  
-}
