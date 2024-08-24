@@ -6,6 +6,20 @@
 #define DATA_FRAME      0
 #define REMOTE_FRAME    1
 
+#define ADDR0 0x0000E000
+#define ADDR1 0x0000E001
+#define ADDR2 0x0000E002
+#define ADDR3 0x00001B9E
+#define ADDR4 0x00000107
+#define ADDR5 0x0000E017
+#define ADDR6 0x0000E018
+#define ADDR7 0x0000E016
+#define ADDR8 0x0000E019
+#define ADDR9 0x0000E020
+#define ADDR10 0x36
+
+
+
 typedef struct {
     unsigned int id;
     unsigned char data[8];

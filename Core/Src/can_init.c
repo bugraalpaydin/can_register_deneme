@@ -64,14 +64,13 @@ void can_init(void){
     CAN1->MCR   &=    ~(1<<5);  //No automatic wake-up mode
     CAN1->MCR   |=    (1<<6);  //No automatic bus-off managment 
     CAN1->MCR   &=    ~(1<<7);  //Time triggered mode disabled
+ 
 
-    CAN1->BTR = 0;              //Reset the bit timing register (reset value 0x0123 0000)
-
-    CAN1->BTR |= (1<<30);
-    CAN1->BTR &= ~(((        0x03) << 24) | ((        0x07) << 20) | ((         0x0F) << 16) | (          0x1FF)); 
-    CAN1->BTR |=  ((((4-1) & 0x03) << 24) | (((5-1) & 0x07) << 20) | (((12-1) & 0x0F) << 16) | (3 & 0x1FF));
+    //CAN1->BTR |= (2<<0) | (6<<16) | (1<<20) | (1<<24);
+    //CAN1->BTR &= ~(((        0x03) << 24) | ((        0x07) << 20) | ((         0x0F) << 16) | (          0x1FF)); 
+    CAN1->BTR = 0x00050001;
+    CAN1->BTR |= (1<<30); //Enable LoopBack Mode
     CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
-
 }
 
 
@@ -157,7 +156,6 @@ void readMessage(void){
     }
 
 }
-
 
 void Set_TxMailBox(uint32_t TxMailBox, CAN_Msg msg){
     //CAN1->sTxMailBox[0].TIR = 0; //reset TIR register, reset value = 0xXXXXXXXX

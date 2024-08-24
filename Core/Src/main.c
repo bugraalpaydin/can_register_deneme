@@ -64,18 +64,18 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  CAN_TxMsg.id = 0x007;
+  CAN_TxMsg.id = 0x31;
   CAN_TxMsg.len = 8;
   CAN_TxMsg.format = STANDART_FORMAT;
   CAN_TxMsg.type = DATA_FRAME;
-  CAN_TxMsg.data[0] = 0x52;
+  CAN_TxMsg.data[0] = 0x31;
   CAN_TxMsg.data[1] = 0x31;
-  CAN_TxMsg.data[2] = 0x69;
-  CAN_TxMsg.data[3] = 0x12;
-  CAN_TxMsg.data[4] = 0x02;
-  CAN_TxMsg.data[5] = 0x27;
-  CAN_TxMsg.data[6] = 0x11;
-  CAN_TxMsg.data[7] = 0x17;
+  CAN_TxMsg.data[2] = 0x31;
+  CAN_TxMsg.data[3] = 0x31;
+  CAN_TxMsg.data[4] = 0x31;
+  CAN_TxMsg.data[5] = 0x31;
+  CAN_TxMsg.data[6] = 0x31;
+  CAN_TxMsg.data[7] = 0x31;
 
   /* USER CODE END 1 */
 
@@ -93,7 +93,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit*/
+  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -102,17 +102,17 @@ int main(void)
   clock_enable();
   gpio_enable();
   can_init();
-  can_filtre_ayarlama_takay03(0x007, 0);
+  can_filtre_ayarlama_takay03(ADDR1, 0);
   Set_TxMailBox(0, CAN_TxMsg);
-
   can_mesaj_gonderla();
+
   /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-    //readMessage(); 
     /* USER CODE BEGIN 3 */
 
   }
@@ -131,13 +131,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -149,10 +148,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
@@ -169,7 +168,6 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
