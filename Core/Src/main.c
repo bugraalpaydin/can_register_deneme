@@ -64,18 +64,18 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  CAN_TxMsg.id = 0x31;
+  CAN_TxMsg.id = 0x33;
   CAN_TxMsg.len = 8;
-  CAN_TxMsg.format = STANDART_FORMAT;
+  CAN_TxMsg.format = EXTENDED_FORMAT;
   CAN_TxMsg.type = DATA_FRAME;
-  CAN_TxMsg.data[0] = 0x31;
-  CAN_TxMsg.data[1] = 0x31;
-  CAN_TxMsg.data[2] = 0x31;
-  CAN_TxMsg.data[3] = 0x31;
-  CAN_TxMsg.data[4] = 0x31;
-  CAN_TxMsg.data[5] = 0x31;
-  CAN_TxMsg.data[6] = 0x31;
-  CAN_TxMsg.data[7] = 0x31;
+  CAN_TxMsg.data[0] = 0x35;
+  CAN_TxMsg.data[1] = 0x35;
+  CAN_TxMsg.data[2] = 0x35;
+  CAN_TxMsg.data[3] = 0x35;
+  CAN_TxMsg.data[4] = 0x35;
+  CAN_TxMsg.data[5] = 0x35;
+  CAN_TxMsg.data[6] = 0x35;
+  CAN_TxMsg.data[7] = 0x35;
 
   /* USER CODE END 1 */
 
@@ -89,7 +89,7 @@ int main(void)
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  SystemClock_Config();
+  //SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -102,9 +102,10 @@ int main(void)
   clock_enable();
   gpio_enable();
   can_init();
-  can_filtre_ayarlama_takay03(ADDR1, 0);
+  can_filtre_ayarlama_takay03(0x7, 1);
   Set_TxMailBox(0, CAN_TxMsg);
-  can_mesaj_gonderla();
+
+  //can_mesaj_gonderla();
 
   /* USER CODE END 2 */
 
@@ -112,11 +113,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-    /* USER CODE BEGIN 3 */
+    
+    readMessage();
 
   }
-  /* USER CODE END 3 */
+ /* USER CODE END 3 */
 }
 
 /**

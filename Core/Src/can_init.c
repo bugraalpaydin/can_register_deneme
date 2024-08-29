@@ -1,8 +1,24 @@
 #include "can_init.h"
 
 
+/*
+ *
+ *  to filter a group of identifiers, configure the Mask/identifier register in mask mode
+ *  to select single identifiers,configure the  Mask/identifier register in list mode 
+ * iki fifoyu da kullanılabilir hale getir
+ *
+ *
+ *
+ *
+ * 
+ * */
+
+
+
+
 CAN_Msg CAN_TxMsg;
 CAN_Msg CAN_RxMsg;
+
 
 void clock_enable(void){
     RCC->APB2ENR |= (1<<0); //enable alternate function clock
@@ -35,7 +51,7 @@ void gpio_enable(void){
     GPIOA->CRH &= ~(1<<12);
     GPIOA->CRH &= ~(1<<13);
 
-    GPIOA->CRH &=  ~(1<<14);
+    GPIOA->CRH &=  ~(1<<14);      
     GPIOA->CRH |=  (1<<15);
 
     GPIOA->CRH |= (1<<16);
@@ -49,28 +65,30 @@ void can_init(void){
 
     NVIC->ISER[0] |= (1 << (USB_HP_CAN1_TX_IRQn  & 0x1F));//
     NVIC->ISER[0] |= (1 << (USB_LP_CAN1_RX0_IRQn & 0x1F));//
+
+    CAN1->MCR    = 0;
+    CAN1->MCR   &= ~(CAN_MCR_SLEEP);
+    CAN1->MCR   |=   CAN_MCR_INRQ;
     
-    CAN1->MCR = 0;
-    CAN1->MCR &= ~(CAN_MCR_SLEEP);
-    CAN1->MCR |=  CAN_MCR_INRQ;
     
-    
-    CAN1->IER |= (CAN_IER_FMPIE0 | CAN_IER_TMEIE);
+    CAN1->IER   |= (CAN_IER_FMPIE0 | CAN_IER_TMEIE);
     
     CAN1->MCR   &=    ~(1<<16); //CAN working during debug
     CAN1->MCR   &=    ~(1<<2);  //Transfer priority driven by the identifier
-    CAN1->MCR   |=    (1<<3);  //Receive FIFO locked mode 
+    //CAN1->MCR   |=     (1<<3);  //Receive FIFO locked mode  - bunu değiştir 0 yap sürekli değişen veriler alıyoz
+    CAN1->MCR   &=    ~(1<<3);
     CAN1->MCR   |=     (1<<4);  //No automatic retransmission
     CAN1->MCR   &=    ~(1<<5);  //No automatic wake-up mode
-    CAN1->MCR   |=    (1<<6);  //No automatic bus-off managment 
+    CAN1->MCR   &=     ~(1<<6);  //No automatic bus-off managment 
     CAN1->MCR   &=    ~(1<<7);  //Time triggered mode disabled
  
 
     //CAN1->BTR |= (2<<0) | (6<<16) | (1<<20) | (1<<24);
-    //CAN1->BTR &= ~(((        0x03) << 24) | ((        0x07) << 20) | ((         0x0F) << 16) | (          0x1FF)); 
-    CAN1->BTR = 0x00050001;
-    CAN1->BTR |= (1<<30); //Enable LoopBack Mode
-    CAN1->MCR &= ~(CAN_MCR_INRQ);				//exit initilization mode
+    CAN1->BTR   &= ~(((0x03) << 24) | ((0x07) << 20) | ((0x0F) << 16) | (0x1FF)); 
+    //CAN1->BTR   |=  (((1-1) & (0x03))<<24) | (((3-1) & (0x07)) << 20) | (((4-1) & 0x0F) << 16) | (1 & 0x1FF); 
+    CAN1->BTR    = 0x001c0000;
+    //CAN1->BTR |= (1<<30); //Enable LoopBack Mode*/
+    CAN1->MCR   &= ~(CAN_MCR_INRQ);				//exit initilization mode
 }
 
 
@@ -99,8 +117,11 @@ void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
   if (format == STANDART_FORMAT)  {               // Standard ID
       CAN_msgId  |= (unsigned int)(id << 21);
   }  else  {                                      // Extended ID
-      CAN_msgId  |= (unsigned int)(id <<  3);
+      CAN_msgId  |= (unsigned int)(id<<3);
+      CAN1->sFilterRegister[CAN_FilterId].FR1 |= (1<<2);
+      CAN1->sFilterRegister[CAN_FilterId].FR1 &= ~(1<<1);
   }
+  
 
   CAN1->FMR  |=  CAN_FMR_FINIT;                    // set Initialisation mode for filter banks
   CAN1->FA1R &=  ~(unsigned int)(1 << CAN_filterIdx); // deactivate filter
@@ -111,6 +132,7 @@ void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
 
   CAN1->sFilterRegister[CAN_filterIdx].FR1 =  CAN_msgId; //  32-bit identifier
   CAN1->sFilterRegister[CAN_filterIdx].FR2 = CAN_msgId; //  32-bit identifier
+
     													   
   CAN1->FFA1R &= ~(unsigned int)(1 << CAN_filterIdx);  // assign filter to FIFO 0
   CAN1->FA1R  |=  (unsigned int)(1 << CAN_filterIdx);  // activate filter
@@ -122,15 +144,20 @@ void can_filtre_ayarlama_takay03(uint32_t id, unsigned char format){
 }
 
 void readMessage(void){
-                                                    // Read identifier information
+  
+  /*CAN_RxMsg.id = 0;*/
+                                                // Read identifier information
+  CAN1->sFIFOMailBox[0].RIR = 0;
   if ((CAN1->sFIFOMailBox[0].RIR & (1<<2)) == 0) { // Standard ID
     CAN_RxMsg.format = STANDART_FORMAT;
     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 21);
-  }  else  {                                          // Extended ID
+  }    
+   if((CAN1->sFIFOMailBox[0].RIR & (1<<2)) == 1){                                          // Extended ID
     CAN_RxMsg.format = EXTENDED_FORMAT;
     CAN_RxMsg.id     = (CAN1->sFIFOMailBox[0].RIR >> 3);
   }
-                                                  // Read type information
+                                                  // Rea
+  // d type information
   if ((CAN1->sFIFOMailBox[0].RIR & (1<<1)) == 0) {
     CAN_RxMsg.type =   DATA_FRAME;                     // DATA   FRAME
   }  else  {
@@ -150,10 +177,6 @@ void readMessage(void){
   CAN_RxMsg.data[7] = (unsigned int)0x000000FF & (CAN1->sFIFOMailBox[0].RDHR >> 24);
 
   CAN1->RF0R |= CAN_RF0R_RFOM0;                    // Release FIFO 0 output mailbox
-
-    if(CAN_RxMsg.id == 0x0FF){
-        led_on();
-    }
 
 }
 
@@ -183,21 +206,24 @@ void Set_TxMailBox(uint32_t TxMailBox, CAN_Msg msg){
 
   
     //Clear the MailBox TIR register (reset value 0xXXXX XXXX)
-    CAN1->sTxMailBox[TxMailBox].TIR &= ~0xFFFFFFFF;
+    /*CAN1->sTxMailBox[TxMailBox].TIR &= ~0xFFFFFFFF;*/
 
-    if (msg.format == STANDART_FORMAT) //Standart CAN identifier
-        CAN1->sTxMailBox[TxMailBox].TIR &= ~(1<<2);	//
-    else if(msg.format == EXTENDED_FORMAT) //Extended CAN identifier
-        CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
-    
-    
+    if (msg.format == STANDART_FORMAT){ //Standart CAN identifier
+      CAN1->sTxMailBox[TxMailBox].TIR &= ~(1<<2);	//
+      CAN1->sTxMailBox[TxMailBox].TIR |= (msg.id<<21); // Standart ID = 21 
+    }
+    //Extended CAN identifier
+    else if(msg.format == EXTENDED_FORMAT){
+      CAN1->sTxMailBox[TxMailBox].TIR |= (1<<2);
+      CAN1->sTxMailBox[TxMailBox].TIR |= (msg.id<<3);
+    }
+
     if(msg.type == DATA_FRAME)  //Data frame
         CAN1->sTxMailBox[TxMailBox].TIR &= ~(1<<1);
     else if(msg.type == REMOTE_FRAME) //Remote Frame
         CAN1->sTxMailBox[TxMailBox].TIR |= (1<<1);
 
     
-    CAN1->sTxMailBox[TxMailBox].TIR |= (msg.id<<21); // Standart ID = 21 
 
 
 }
